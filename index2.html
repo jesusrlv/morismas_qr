@@ -44,14 +44,14 @@
                   <h1 class="card-title"><i class="bi bi-clipboard-check-fill"></i></h1>
                   <h5 class="card-title text-secondary">INICIO DE SESIÓN</h5>
                   <hr class="text-secondary">
-                  <form action="perfil/prcd/acceso.php" method="post">
+                  <form action="" method="post" id="pwdForm">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">@</span>
-                        <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" name="usr">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
+                        <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" name="usr" required>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">@</span>
-                        <input type="text" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" name="pwd">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-question-circle-fill"></i></span>
+                        <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" name="pwd" required>
                     </div>
                     <hr class="text-secondary">
                     <button class="btn btn-primary" type="submit"><i class="bi bi-key-fill"></i> Acceso</button>
@@ -86,8 +86,8 @@ $(document).ready(function() {
                         icon: 'success',
                         title: 'Usuario correcto',
                         text: 'Credenciales correctas',
-                        footer: 'VENTAS</a>'
-                    }).then(function(){window.location='dashboard.php';});
+                        footer: 'Morismas de Bracho</a>'
+                    }).then(function(){window.location='perfil/alta/';});
                 }
                 else
                 {
@@ -96,7 +96,7 @@ $(document).ready(function() {
                         icon: 'error',
                         title: 'Datos incorrectos',
                         text: 'Credenciales incorrectas',
-                        footer: 'VENTAS</a>'
+                        footer: 'Morismas de Bracho</a>'
                     // }).then(function(){window.location='index.php';});
                     });
                 }
