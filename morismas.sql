@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 04-05-2022 a las 19:53:32
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Host: localhost:3306
+-- Generation Time: May 04, 2022 at 07:08 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `morismas`
+-- Database: `morismas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asistentes`
+-- Table structure for table `asistentes`
 --
 
 CREATE TABLE `asistentes` (
@@ -33,13 +33,16 @@ CREATE TABLE `asistentes` (
   `apellidos` varchar(50) NOT NULL,
   `fecha_entrega` datetime NOT NULL,
   `qr` varchar(100) NOT NULL,
-  `entregado` int(11) NOT NULL
+  `entregado` int(11) NOT NULL,
+  `curp` varchar(18) NOT NULL,
+  `cantidad_polvora` int(1) NOT NULL,
+  `detalles` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usr`
+-- Table structure for table `usr`
 --
 
 CREATE TABLE `usr` (
@@ -50,33 +53,33 @@ CREATE TABLE `usr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `asistentes`
+-- Indexes for table `asistentes`
 --
 ALTER TABLE `asistentes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usr`
+-- Indexes for table `usr`
 --
 ALTER TABLE `usr`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `asistentes`
+-- AUTO_INCREMENT for table `asistentes`
 --
 ALTER TABLE `asistentes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `usr`
+-- AUTO_INCREMENT for table `usr`
 --
 ALTER TABLE `usr`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
