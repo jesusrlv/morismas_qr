@@ -1,7 +1,7 @@
 <?php
 
     $servername="localhost";
-    $database="tenis"; //solo se quitó para conexión remota
+    $database="morismas"; //solo se quitó para conexión remota
     $username="root";
     $password="";
 
