@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Inicio</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>       
+
+    
+    <!-- Custom styles for this template -->
+    <link href="signin2.css" rel="stylesheet">
+  </head>
+  <!-- <body class="text-center" style="background-image: url('/asset/brand/img/portada.jpg');"> -->
+  <body class="text-center">
+    <div class="hero-image">
+        <div class="hero-text">
+            <div class="card w-100" style="background-color: rgba(255, 255, 255, .8);">
+                <div class="card-body">
+                  <h1 class="card-title"><i class="bi bi-clipboard-check-fill"></i></h1>
+                  <h5 class="card-title text-secondary">INICIO DE SESIÓN</h5>
+                  <hr class="text-secondary">
+                  <form action="perfil/prcd/acceso.php" method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1">
+                    </div>
+                    <hr class="text-secondary">
+                    <a href="#" class="btn btn-primary"><i class="bi bi-key-fill"></i> Acceso</a>
+                  </form> 
+                </div>
+              </div>
+        </div>
+      </div> 
+    
+  </body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#pwdForm').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: 'perfil/acceso.php',
+            data: $(this).serialize(),
+            success: function(response)
+            {
+                var jsonData = JSON.parse(response);
+ 
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData.success == "1")
+                {
+                    // location.href = 'my_profile.php';
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Usuario correcto',
+                        text: 'Credenciales correctas',
+                        footer: 'VENTAS</a>'
+                    }).then(function(){window.location='dashboard.php';});
+                }
+                else
+                {
+                    // alert('Invalid Credentials!');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Datos incorrectos',
+                        text: 'Credenciales incorrectas',
+                        footer: 'VENTAS</a>'
+                    // }).then(function(){window.location='index.php';});
+                    });
+                }
+           }
+       });
+     });
+});
+</script>
+  <!-- script validate -->

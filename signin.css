@@ -10,10 +10,11 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #f5f5f5;
-  background-image: url('assets/brand/img/portada.jpg');
-  object-fit: cover; 
+  position: relative;
+  /* background-image: url('assets/brand/img/portada.jpg'); */
+  /* object-fit: cover; 
   object-position:center; 
-  background-repeat: repeat;
+  background-repeat: no-repeat; */
 }
 
 .form-signin {
