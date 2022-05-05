@@ -66,10 +66,18 @@ body {
         <div class="col">
             <div class="card text-white bg-info h-100">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
-            <div class="card-body">
-                <h5 class="card-title">NÚMERO DE ALTAS</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
+              <div class="card-body align-items-center">
+                    <div class="row align-items-center">
+                      <div class="col-8 h-100">
+                        <h3 class="card-title my-auto" style="text-size:15rem;">NÚMERO DE ALTAS</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                    </div>
+                      <div class="col-4 text-center">
+                        <h1 class="card-title my-auto">3</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                    </div>
+                  </div>
+              </div>
             </div>
         </div>
         <div class="col">
