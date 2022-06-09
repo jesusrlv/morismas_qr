@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +50,7 @@ body {
 <div class="sidenav">
   <a href="#">Dashboard <i class="bi bi-house-fill"></i></a>
   <hr>
-  <a href="#">Alta <i class="bi bi-record-circle-fill"></i></a>
+  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Alta <i class="bi bi-record-circle-fill"></i></a>
   <a href="#">Listado <i class="bi bi-list-check"></i></a>
   <hr>
   <a href="../prcd/sort.php">Salir <i class="bi bi-door-open-fill"></i></a>
@@ -113,3 +114,75 @@ body {
    
 </body>
 </html> 
+
+<!-- Modal alta-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Alta de polvora</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+          <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+          <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
+          <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+          <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);">
+        
+        </div>
+       
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+          <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+        <button type="button" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  //Función que permite solo Números
+function ValidaSoloNumeros() {
+ if ((event.keyCode < 49) || (event.keyCode > 50)) 
+  event.returnValue = false;
+}
+function curpValida(curp) {
+	var re = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0\d|1[0-2])(?:[0-2]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/,
+    	validado = curp.match(re);
+	
+    if (!validado)  //Coincide con el formato general?
+    	return false;
+    
+    //Validar que coincida el dígito verificador
+    function digitoVerificador(curp17) {
+        //Fuente https://consultas.curp.gob.mx/CurpSP/
+        var diccionario  = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ",
+            lngSuma      = 0.0,
+            lngDigito    = 0.0;
+        for(var i=0; i<17; i++)
+            lngSuma= lngSuma + diccionario.indexOf(curp17.charAt(i)) * (18 - i);
+        lngDigito = 10 - lngSuma % 10;
+        if(lngDigito == 10)
+            return 0;
+        return lngDigito;
+    }
+    if (validado[2] != digitoVerificador(validado[1])) 
+    	return false;
+        
+	return true; //Validado
+}
+</script>
