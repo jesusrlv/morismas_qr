@@ -124,32 +124,34 @@ body {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-          <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
-          <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
-          <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1">
-          <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-          <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);">
-        
-        </div>
+        <form action=""><!--form-->
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+            <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"  name="apellidos">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
+            <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+            <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad">
+          
+          </div>
        
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-          <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1">
-        </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+            <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">
+          </div>
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-        <button type="button" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
-      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+          <button type="button" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+        </div>
+      </form><!--form-->
     </div>
   </div>
 </div>
