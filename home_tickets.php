@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
     session_start();
 
     if (isset($_SESSION['nombre'])) {
@@ -42,7 +42,7 @@
     date_default_timezone_set('America/Mexico_City');
                   setlocale(LC_TIME, 'es_MX.UTF-8');
 
-?> -->
+?>
 <!doctype html>
 <html lang="en">
 

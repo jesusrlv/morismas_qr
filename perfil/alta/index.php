@@ -124,7 +124,7 @@ body {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action=""><!--form-->
+        <form action="prcd/"><!--form-->
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre">
