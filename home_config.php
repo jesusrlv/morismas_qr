@@ -10,7 +10,11 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
 
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     
 
@@ -88,7 +92,7 @@
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Registrar Usuario</a>
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar Usuario</a>
           </li>
           <li class="nav-item">
             <a class="nav-link">Generar Ticket</a>
@@ -108,79 +112,25 @@
 
 <main>
 
-  <!-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
 
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div> -->
-
-
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
 
   <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
     <div class="row mt-5">
       <div class="col-lg-4">
-        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/bracho.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
-
-        <h2 class="fw-normal">Registro</h2>
-        <p>Registrar miembros nuevos.</p>
-        <p><a class="btn btn-secondary" href="#">Ingresar &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
         <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/polvora.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
         <h2 class="fw-normal">Generar Ticket</h2>
         <p>Generador de ticket para pólvora.</p>
-        <p><a class="btn btn-secondary" href="#">Ingresar &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
+      <div class="col-lg-2">
+<!--         <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/bracho.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
+
+        <h2 class="fw-normal">Registro</h2>
+        <p>Registrar miembros nuevos.</p>
+        <p><a class="btn btn-secondary" href="#">Ingresar &raquo;</a></p> -->
+      </div> <!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/qrstatus.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
 
@@ -252,3 +202,77 @@
       
   </body>
 </html>
+
+<!-- Modal alta-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Alta de polvora</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="prcd/"><!--form-->
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+            <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"  name="apellidos">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
+            <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+            <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad">
+          
+          </div>
+       
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+            <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">
+          </div>
+
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+          <button type="button" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+        </div>
+      </form><!--form-->
+    </div>
+  </div>
+</div>
+
+<script>
+  //Función que permite solo Números
+function ValidaSoloNumeros() {
+ if ((event.keyCode < 49) || (event.keyCode > 50)) 
+  event.returnValue = false;
+}
+function curpValida(curp) {
+	var re = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0\d|1[0-2])(?:[0-2]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/,
+    	validado = curp.match(re);
+	
+    if (!validado)  //Coincide con el formato general?
+    	return false;
+    
+    //Validar que coincida el dígito verificador
+    function digitoVerificador(curp17) {
+        //Fuente https://consultas.curp.gob.mx/CurpSP/
+        var diccionario  = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ",
+            lngSuma      = 0.0,
+            lngDigito    = 0.0;
+        for(var i=0; i<17; i++)
+            lngSuma= lngSuma + diccionario.indexOf(curp17.charAt(i)) * (18 - i);
+        lngDigito = 10 - lngSuma % 10;
+        if(lngDigito == 10)
+            return 0;
+        return lngDigito;
+    }
+    if (validado[2] != digitoVerificador(validado[1])) 
+    	return false;
+        
+	return true; //Validado
+}
+</script>
