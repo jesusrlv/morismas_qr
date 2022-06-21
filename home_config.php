@@ -159,7 +159,10 @@
                             </tr>
                         </thead>
                         <tbody id="myTable">
-                            <?php include('prcd/alta_usr.php'); ?>
+                            <?php 
+                            // include('prcd/alta_usr.php'); 
+                            include('perfil/prcd/alta_usr.php'); 
+                            ?>
 
                             <?php
               $x = 0;
