@@ -92,11 +92,11 @@
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar Usuario</a>
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Generar Ticket</a>
-          </li>
+            <a class="nav-link">Canjear Ticket</a>
+
           <li class="nav-item">
             <a class="nav-link">Verificar Ticket</a>
           </li>
@@ -119,21 +119,19 @@
     <!-- Three columns of text below the carousel -->
     <div class="row mt-5">
       <div class="col-lg-4">
-        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/polvora.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
-        <h2 class="fw-normal">Generar Ticket</h2>
+        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/bracho.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
+        <h2 class="fw-normal">Registrar</h2>
         <p>Generador de ticket para pólvora.</p>
         <p><a class="btn btn-secondary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-2">
-<!--         <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/bracho.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
-
-        <h2 class="fw-normal">Registro</h2>
-        <p>Registrar miembros nuevos.</p>
-        <p><a class="btn btn-secondary" href="#">Ingresar &raquo;</a></p> -->
+      <div class="col-lg-4">
+        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/polvora.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
+        <h2 class="fw-normal">Canjear Ticket</h2>
+        <p>Canjea el ticket por pólvora.</p>
+        <p><a class="btn btn-secondary" href="#">Ingresar &raquo;</a></p>
       </div> <!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/qrstatus.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
-
         <h2 class="fw-normal">Verificar Ticket</h2>
         <p>Verifica el estatus del QR.</p>
         <p><a class="btn btn-secondary" href="#">Ingresrar &raquo;</a></p>
@@ -145,16 +143,62 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-      </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+    <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-sm align-middle mt-4">
+                        <thead style="background-color:#f7c6bf; color: #7B8DAB;">
+                            <tr class="text-center">
+                                <th scope="col">#</th>
+                                <th scope="col">Sel. <br><input class="form-check-input" type="checkbox" value=""></th>
+                                <th scope="col">Nombre(s)</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Fecha de Registro</th>
+                                <th scope="col">CURP</th>
+                                <th scope="col">Cantidad Pólvora</th>
+                                <th scope="col">Detalles</th>
+                                <th scope="col">Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+                            <?php include('prcd/alta_usr.php'); ?>
 
-      </div>
-    </div>
+                            <?php
+              $x = 0;
+              while ($row_sqlQuery = $resultadosqlQuery->fetch_assoc()) {
+                $x++;
+                echo '
+          <tr class="text-center">
+            <td>' . $x . '</td>
+            <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQuery['id'].'"></td>
+            <td>' . $row_sqlQuery['nombre'] . '</td>
+            <td>' . $row_sqlQuery['apellidos'] . '</td>
+            <td>' . $row_sqlQuery['curp'] . '</td>
+            <td>' . $row_sqlQuery['fecha_registro'] . '</td>
+            <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
+            <td>' . $row_sqlQuery['email'] . '</td>';
+
+            $idSeconday = $row_sqlQuery['id'];
+            $sqlSecondary ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
+            $sqlResultSecondary = $conn->query($sqlSecondary);
+            $filaSecondary = $sqlResultSecondary->num_rows;
+            
+            echo '<td><a href="invitados_secondary.php?id=' . $row_sqlQuery['id'] . '&&id2='.$idEvent.'"><span class="badge bg-warning text-dark">' . $filaSecondary. '</span></a></td>
+            <td>' . $row_sqlQuery['mesa'] . '</td>';
+
+            /* $idTotal = $row_sqlQuery['id']; */
+            $sqlTotal ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
+            $sqlResultTotal = $conn->query($sqlTotal);
+            $filaTotal = $sqlResultTotal->num_rows;
+            $TotalInvitados = $filaTotal + 1;
+
+            /* $idConfirmados = $row_sqlQuery['id']; */
+            $sqlConfirmados ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday AND confirmacion = 1";
+            $sqlResultConfirmados = $conn->query($sqlConfirmados);
+            $filaConfirmados = $sqlResultConfirmados->num_rows;
+
+            echo '<td>'.$filaConfirmados.' / '.$TotalInvitados.'</td>
+            <td><a href="#" data-bs-toggle="modal"
+            data-bs-target="#editarInv' . $row_sqlQuery['id'] . '"><span class="badge bg-light text-dark"><i class="bi bi-pencil-square"></i></span></a></td>
+          </tr>';
 
     <hr class="featurette-divider">
 
@@ -228,7 +272,7 @@
             <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad">
           
           </div>
-       
+
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
             <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">
