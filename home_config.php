@@ -166,7 +166,7 @@
               while ($row_sqlQuery = $resultadosqlQuery->fetch_assoc()) {
                 $x++;
                 echo '
-          <tr class="text-center">
+            <tr class="text-center">
             <td>' . $x . '</td>
             <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQuery['id'].'"></td>
             <td>' . $row_sqlQuery['nombre'] . '</td>
@@ -174,22 +174,22 @@
             <td>' . $row_sqlQuery['curp'] . '</td>
             <td>' . $row_sqlQuery['fecha_registro'] . '</td>
             <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
-            <td>' . $row_sqlQuery['detalles'] . '</td>'
+            <td>' . $row_sqlQuery['detalles'] . '</td>';
 
             /* $idSeconday = $row_sqlQuery['id'];
             $sqlSecondary ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
             $sqlResultSecondary = $conn->query($sqlSecondary);
             $filaSecondary = $sqlResultSecondary->num_rows; */
             
-            <td>' . $row_sqlQuery['detalles'] . '</td>'
+            echo '<td>' . $row_sqlQuery['detalles'] . '</td>';
 
-            /* $idTotal = $row_sqlQuery['id']; */
+            
             $sqlTotal ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
             $sqlResultTotal = $conn->query($sqlTotal);
             $filaTotal = $sqlResultTotal->num_rows;
             $TotalInvitados = $filaTotal + 1;
 
-            /* $idConfirmados = $row_sqlQuery['id']; */
+            
             $sqlConfirmados ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday AND confirmacion = 1";
             $sqlResultConfirmados = $conn->query($sqlConfirmados);
             $filaConfirmados = $sqlResultConfirmados->num_rows;
@@ -198,6 +198,8 @@
             <td><a href="#" data-bs-toggle="modal"
             data-bs-target="#editarInv' . $row_sqlQuery['id'] . '"><span class="badge bg-light text-dark"><i class="bi bi-pencil-square"></i></span></a></td>
           </tr>';
+              }
+          ?>
 
     <hr class="featurette-divider">
 
