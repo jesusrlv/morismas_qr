@@ -174,15 +174,14 @@
             <td>' . $row_sqlQuery['curp'] . '</td>
             <td>' . $row_sqlQuery['fecha_registro'] . '</td>
             <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
-            <td>' . $row_sqlQuery['email'] . '</td>';
+            <td>' . $row_sqlQuery['detalles'] . '</td>'
 
-            $idSeconday = $row_sqlQuery['id'];
+            /* $idSeconday = $row_sqlQuery['id'];
             $sqlSecondary ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
             $sqlResultSecondary = $conn->query($sqlSecondary);
-            $filaSecondary = $sqlResultSecondary->num_rows;
+            $filaSecondary = $sqlResultSecondary->num_rows; */
             
-            echo '<td><a href="invitados_secondary.php?id=' . $row_sqlQuery['id'] . '&&id2='.$idEvent.'"><span class="badge bg-warning text-dark">' . $filaSecondary. '</span></a></td>
-            <td>' . $row_sqlQuery['mesa'] . '</td>';
+            <td>' . $row_sqlQuery['detalles'] . '</td>'
 
             /* $idTotal = $row_sqlQuery['id']; */
             $sqlTotal ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
