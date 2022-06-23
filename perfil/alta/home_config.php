@@ -11,14 +11,17 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
 
     
 
-<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -75,12 +78,12 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <link href="../../carousel.css" rel="stylesheet">
   </head>
   <body>
     
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-3">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-5">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Morismas de Bracho</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,19 +122,19 @@
     <!-- Three columns of text below the carousel -->
     <div class="row mt-5">
       <div class="col-lg-4">
-        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/bracho.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
+        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="../../img/bracho.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
         <h2 class="fw-normal">Registrar</h2>
         <p>Generador de ticket para pólvora.</p>
         <p><a class="btn btn-secondary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/polvora.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
+        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="../../img/polvora.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
         <h2 class="fw-normal">Canjear Ticket</h2>
         <p>Canjea el ticket por pólvora.</p>
         <p><a class="btn btn-secondary" href="#">Ingresar &raquo;</a></p>
       </div> <!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/qrstatus.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
+        <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="../../img/qrstatus.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
         <h2 class="fw-normal">Verificar Ticket</h2>
         <p>Verifica el estatus del QR.</p>
         <p><a class="btn btn-secondary" href="#">Ingresrar &raquo;</a></p>
@@ -161,7 +164,7 @@
                         <tbody id="myTable">
                             <?php 
                             // include('prcd/alta_usr.php'); 
-                            include('perfil/prcd/alta_usr.php'); 
+                            include('prcd/alta_usr.php'); 
                             ?>
 
                             <?php
@@ -260,7 +263,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="prcd/"><!--form-->
+        <form action="#"><!--form-->
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre">
