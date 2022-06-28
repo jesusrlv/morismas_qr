@@ -156,7 +156,19 @@
 
     <p class="fs-3"><i class="bi bi-list-check"></i> Lista de personas</p>
 
-    
+    <div class="row">
+    <div class="col">
+        <div class="input-group mb-4 w-100">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput">
+        </div>
+    </div>
+    <div class="col">
+        <!-- <div class="input-group mb-4 justify-content-end">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar categoría</button>
+        </div> -->
+    </div>
+  </div>
 
     <div class="table-responsive">
                     <table class="table table-hover table-bordered table-sm align-middle mt-4">
@@ -253,6 +265,18 @@
     </div>
   </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+  </script>
 
 <script>
   //Función que permite solo Números
