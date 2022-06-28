@@ -6,18 +6,16 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
-    <title>Generador de tickets | Morismas de Bracho</title>
+    <title>Carousel Template · Bootstrap v5.2</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-<!--  
- -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
     
 
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -82,7 +80,7 @@
   <body>
     
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-5">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-3">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Morismas de Bracho</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,37 +89,31 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0" style="align-items: right;">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill"></i> Inicio</a>
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-check-circle-fill"></i> Registrar</a>
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"><i class="bi bi-ticket-perforated-fill"></i> Canjear Ticket</a>
+            <a class="nav-link">Canjear Ticket</a>
 
           <li class="nav-item">
-            <a class="nav-link"><i class="bi bi-qr-code"></i> Verificar Ticket</a>
+            <a class="nav-link">Verificar Ticket</a>
           </li>
         </ul>
+<!--         <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
       </div>
     </div>
   </nav>
 </header>
 
-<main class="">
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Morismas de Bracho</h1>
-        <p class="lead text-muted">Zacatecas, Zac.</p>
-        <!-- <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p> -->
-      </div>
-    </div>
-  </section>
-<div class="album py-5 bg-light">
+<main>
+
+
+
   <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
@@ -130,7 +122,7 @@
         <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/bracho.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
         <h2 class="fw-normal">Registrar</h2>
         <p>Generador de ticket para pólvora.</p>
-        <p><a class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar &raquo;</a></p>
+        <p><a class="btn btn-secondary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/polvora.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
@@ -145,22 +137,15 @@
         <p><a class="btn btn-secondary" href="#">Ingresrar &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
-  </div>
-
-
 
 
     <!-- START THE FEATURETTES -->
-<div class="container">
+
     <hr class="featurette-divider">
-
-    <p class="fs-3"><i class="bi bi-list-check"></i> Lista de personas</p>
-
-    
 
     <div class="table-responsive">
                     <table class="table table-hover table-bordered table-sm align-middle mt-4">
-                        <thead style="background-color:#7B8DAB;" class="text-light align-middle">
+                        <thead style="background-color:#f7c6bf; color: #7B8DAB;">
                             <tr class="text-center">
                                 <th scope="col">#</th>
                                 <th scope="col">Sel. <br><input class="form-check-input" type="checkbox" value=""></th>
@@ -176,68 +161,94 @@
                         <tbody id="myTable">
                             <?php 
                             // include('prcd/alta_usr.php'); 
-                            /* include('prcd/alta_usr.php');  */
+                            include('prcd/alta_usr.php'); 
                             ?>
 
                             <?php
-              include('query.php');
               $x = 0;
-              while ($row_sqlQuery = $resultadoQuery->fetch_assoc()) {
+              while ($row_sqlQuery = $resultadosqlQuery->fetch_assoc()) {
                 $x++;
                 echo '
-            <tr class="text-center bg-white">
-              <td>' . $x . '</td>
-              <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQuery['id'].'"></td>
-              <td>' . $row_sqlQuery['nombre'] . '</td>
-              <td>' . $row_sqlQuery['apellidos'] . '</td>
-              <td>' . $row_sqlQuery['curp'] . '</td>
-              <td>' . $row_sqlQuery['fecha_entrega'] . '</td>
-              <td>' . $row_sqlQuery['cantidad'] . '</td>
-              <td>' . $row_sqlQuery['detalles'] . '</td>
-              <td><span class="badge text-bg-secondary"><i class="bi bi-pencil-square"></i> Editar</span></td>
-            <tr>';
+            <tr class="text-center">
+            <td>' . $x . '</td>
+            <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQuery['id'].'"></td>
+            <td>' . $row_sqlQuery['nombre'] . '</td>
+            <td>' . $row_sqlQuery['apellidos'] . '</td>
+            <td>' . $row_sqlQuery['curp'] . '</td>
+            <td>' . $row_sqlQuery['fecha_registro'] . '</td>
+            <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
+            <td>' . $row_sqlQuery['detalles'] . '</td>';
 
             /* $idSeconday = $row_sqlQuery['id'];
             $sqlSecondary ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
             $sqlResultSecondary = $conn->query($sqlSecondary);
             $filaSecondary = $sqlResultSecondary->num_rows; */
             
-            // echo '<td>' . $row_sqlQuery['detalles'] . '</td>';
+            echo '<td>' . $row_sqlQuery['detalles'] . '</td>';
 
             
-            // $sqlTotal ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
-            // $sqlResultTotal = $conn->query($sqlTotal);
-            // $filaTotal = $sqlResultTotal->num_rows;
-            // $TotalInvitados = $filaTotal + 1;
+            $sqlTotal ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday";
+            $sqlResultTotal = $conn->query($sqlTotal);
+            $filaTotal = $sqlResultTotal->num_rows;
+            $TotalInvitados = $filaTotal + 1;
 
             
-            // $sqlConfirmados ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday AND confirmacion = 1";
-            // $sqlResultConfirmados = $conn->query($sqlConfirmados);
-            // $filaConfirmados = $sqlResultConfirmados->num_rows;
+            $sqlConfirmados ="SELECT * FROM invitados WHERE id_evento = $idEvent AND tipo_invitado = 2 AND invitado_eje = $idSeconday AND confirmacion = 1";
+            $sqlResultConfirmados = $conn->query($sqlConfirmados);
+            $filaConfirmados = $sqlResultConfirmados->num_rows;
 
-          //   echo '<td>'.$filaConfirmados.' / '.$TotalInvitados.'</td>
-          //   <td><a href="#" data-bs-toggle="modal"
-          //   data-bs-target="#editarInv' . $row_sqlQuery['id'] . '"><span class="badge bg-light text-dark"><i class="bi bi-pencil-square"></i></span></a></td>
-          // </tr>';
+            echo '<td>'.$filaConfirmados.' / '.$TotalInvitados.'</td>
+            <td><a href="#" data-bs-toggle="modal"
+            data-bs-target="#editarInv' . $row_sqlQuery['id'] . '"><span class="badge bg-light text-dark"><i class="bi bi-pencil-square"></i></span></a></td>
+          </tr>';
               }
-              echo'</table>';
           ?>
-  </div><!-- /.container -->
-</div><!-- /.album -->
-</main>
 
-      
-  </body>
-  
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
 
   <!-- FOOTER -->
   <footer class="container">
-  <hr class="featurette-divider">
-
-    <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
+    <p class="float-end"><a href="#">Back to top</a></p>
     <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
-  
+</main>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
 </html>
 
 <!-- Modal alta-->
@@ -249,7 +260,34 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
+        <form action="prcd/"><!--form-->
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+            <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"  name="apellidos">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
+            <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+            <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad">
+          
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+            <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">
+          </div>
+
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+          <button type="button" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+        </div>
+      </form><!--form-->
     </div>
   </div>
 </div>
@@ -286,47 +324,3 @@ function curpValida(curp) {
 	return true; //Validado
 }
 </script>
-
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="#"><!--form-->
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-              <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
-              <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"  name="apellidos">
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
-              <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-              <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad">
-            
-            </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-              <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">
-            </div>
-
-        </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-            <button type="button" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
-          </div>
-        </form><!--form-->
-      </div>
-    </div>
-  </div>
-</div>
