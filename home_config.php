@@ -202,8 +202,8 @@
               <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQuery['id'].'"></td>
               <td>' . $row_sqlQuery['nombre'] . '</td>
               <td>' . $row_sqlQuery['apellidos'] . '</td>
-              <td>' . $row_sqlQuery['curp'] . '</td>
               <td>' . $row_sqlQuery['fecha_entrega'] . '</td>
+              <td>' . $row_sqlQuery['curp'] . '</td>
               <td>' . $row_sqlQuery['cantidad'] . '</td>
               <td>' . $row_sqlQuery['detalles'] . '</td>
               <td><span class="badge text-bg-secondary"><i class="bi bi-pencil-square"></i> Editar</span></td>
