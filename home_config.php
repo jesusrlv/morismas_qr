@@ -230,7 +230,7 @@
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">
+                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
               </div>
         </div>
           <div class="modal-footer">
@@ -268,12 +268,12 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">
+                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
               </div>
         </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-            <button type="button" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
           </div>
         </form><!--form-->
     </div>
