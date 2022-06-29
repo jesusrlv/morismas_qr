@@ -104,7 +104,9 @@
     </header>
 
     <main class="">
-      <section class="py-5 text-center container">
+      <section class="py-5 text-center container-fluid" style="background: url(img/bracho-6.jpg)  50% 10px no-repeat ;
+  background-size:cover;
+  height:720px;">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">Morismas de Bracho</h1>
@@ -230,7 +232,7 @@
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
+                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" readonly></textarea>
               </div>
         </div>
           <div class="modal-footer">
