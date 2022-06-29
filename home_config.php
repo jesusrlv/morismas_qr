@@ -90,11 +90,10 @@
                 <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill"></i> Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-check-circle-fill"></i> Registrar</a>
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-check-circle-fill"></i> Registrar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link"><i class="bi bi-ticket-perforated-fill"></i> Canjear Ticket</a>
-
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#validate"><i class="bi bi-ticket-perforated-fill"></i> Canjear Ticket</a>
               <li class="nav-item">
                 <a class="nav-link"><i class="bi bi-qr-code"></i> Verificar Ticket</a>
               </li>
@@ -133,7 +132,7 @@
               <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/qrstatus.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
               <h2 class="fw-normal">Verificar Ticket</h2>
               <p>Verifica el estatus del QR.</p>
-              <p><a class="btn btn-secondary" href="#">Ingresrar &raquo;</a></p>
+              <p><a class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#validate">Ingresrar &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->
         </div>
@@ -217,6 +216,44 @@
         <form action="#"><!--form-->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" required>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+                <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"  name="apellidos" required>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
+                <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" required>
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad" required>
+              </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+                <input type="text" class="form-control" placeholder="Detalles" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">
+              </div>
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+          </div>
+        </form><!--form-->
+    </div>
+  </div>
+</div>
+
+<!-- Modal Validar-->
+<div class="modal fade" id="validate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Validar QR</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="#"><!--form-->
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
                 <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre">
               </div>
               <div class="input-group mb-3">
@@ -258,7 +295,7 @@
 <script>
   //Función que permite solo Números
   function ValidaSoloNumeros() {
-  if ((event.keyCode < 49) || (event.keyCode > 50)) 
+  if ((event.keyCode < 48) || (event.keyCode > 50)) 
     event.returnValue = false;
   }
   function curpValida(curp) {
