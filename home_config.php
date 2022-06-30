@@ -95,7 +95,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#validate"><i class="bi bi-ticket-perforated-fill"></i> Canjear Ticket</a>
               <li class="nav-item">
-                <a class="nav-link"><i class="bi bi-qr-code"></i> Verificar Ticket</a>
+                <a class="nav-link" href="#"><i class="bi bi-qr-code"></i> Verificar Ticket</a>
               </li>
             </ul>
           </div>
@@ -104,9 +104,7 @@
     </header>
 
     <main class="">
-      <section class="py-5 text-center container-fluid" style="background: url(img/bracho-6.jpg)  50% 10px no-repeat ;
-  background-size:cover;
-  height:720px;">
+      <section class="py-5 text-center container-fluid" style="background: url(img/bracho-6.jpg)  50% 10px no-repeat ; background-size:cover;  height:720px;">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">Morismas de Bracho</h1>
@@ -186,7 +184,7 @@
                       <td>' . $row_sqlQuery['apellidos'] . '</td>
                       <td>' . $row_sqlQuery['fecha_entrega'] . '</td>
                       <td>' . $row_sqlQuery['curp'] . '</td>
-                      <td>' . $row_sqlQuery['cantidad'] . '</td>
+                      <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
                       <td>' . $row_sqlQuery['detalles'] . '</td>
                       <td><span class="badge text-bg-secondary"><i class="bi bi-pencil-square"></i> Editar</span></td>
                     <tr>';
@@ -215,7 +213,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="#"><!--form-->
+        <form action="prcd/guardar.php" method="POST"><!--form-->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
                 <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" required>
@@ -228,7 +226,7 @@
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
                 <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" required>
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad" required>
+                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad_polvora" required>
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
