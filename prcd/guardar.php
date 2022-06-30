@@ -7,6 +7,11 @@
 <?php
 include('qc/qc.php');
 
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
+
+$fecha_entrega = strftime("%Y-%m-%d,%H:%M:%S");
+
 $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
 $cantidad_polvora = $_POST['cantidad_polvora'];
@@ -14,7 +19,7 @@ $curp = $_POST['curp'];
 $detalles = $_POST['detalles'];
 $entregado = 0; 
 
-    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,curp,detalles,cantidad_polvora,entregado) VALUES('$nombre','$apellidos','$curp','$detalles','$cantidad_polvora','$entregado')";
+    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,detalles,cantidad_polvora,entregado) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$detalles','$cantidad_polvora','$entregado')";
     $resultado= $conn->query($sqlinsert);
 
 

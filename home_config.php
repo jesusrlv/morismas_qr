@@ -186,7 +186,7 @@
                       <td>' . $row_sqlQuery['curp'] . '</td>
                       <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
                       <td>' . $row_sqlQuery['detalles'] . '</td>
-                      <td><span class="badge text-bg-secondary"><i class="bi bi-pencil-square"></i> Editar</span></td>
+                      <td><span class="badge text-bg-secondary" href="#" type="button" data-bs-toggle="modal" data-bs-target="#editar' . $row_sqlQuery['id'] . '"><i class="bi bi-pencil-square"></i> Editar</span></td>
                     <tr>';
                   }
             echo'</table>';
@@ -214,6 +214,44 @@
       </div>
       <div class="modal-body">
         <form action="prcd/guardar.php" method="POST"><!--form-->
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" required>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+                <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"  name="apellidos" required>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
+                <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" required>
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad_polvora" required>
+              </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" readonly></textarea>
+              </div>
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+          </div>
+        </form><!--form-->
+    </div>
+  </div>
+</div>
+
+<!-- Modal editar-->
+<div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Alta de polvora</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="prcd/actualizar.php" method="POST"><!--form-->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
                 <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" required>
