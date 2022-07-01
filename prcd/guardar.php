@@ -1,6 +1,7 @@
 <html>
     <header>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="QR/ajax_generate_code.js"></script>
     </header>
 <body>
 
