@@ -19,7 +19,7 @@ $curp = $_POST['curp'];
 $detalles = $_POST['detalles'];
 $entregado = 0; 
 
-    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,detalles,cantidad_polvora,entregado) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$detalles','$cantidad_polvora','$entregado')";
+    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,detalles,cantidad,entregado) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$detalles','$cantidad_polvora','$entregado')";
     $resultado= $conn->query($sqlinsert);
 
 
