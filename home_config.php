@@ -184,7 +184,7 @@
                       <td>' . $row_sqlQuery['apellidos'] . '</td>
                       <td>' . $row_sqlQuery['fecha_entrega'] . '</td>
                       <td>' . $row_sqlQuery['curp'] . '</td>
-                      <td>' . $row_sqlQuery['cantidad'] . '</td>
+                      <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
                       <td>' . $row_sqlQuery['detalles'] . '</td>
                       <td><span class="badge text-bg-secondary" href="#" type="button" data-bs-toggle="modal" data-bs-target="#editar' . $row_sqlQuery['id'] . '"><i class="bi bi-pencil-square"></i> Editar</span></td>
                     <tr>';
@@ -316,7 +316,7 @@
         </form><!--form-->
     </div>
   </div>
-</div>
+</div> <!-- Termina Modal validar -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
@@ -362,3 +362,4 @@
 </script>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
