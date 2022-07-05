@@ -167,6 +167,7 @@
                     <th scope="col">CURP</th>
                     <th scope="col">Cantidad Pólvora</th>
                     <th scope="col">Detalles</th>
+                    <th scope="col">QR</th>
                     <th scope="col">Editar</th>
                 </tr>
               </thead>
@@ -186,8 +187,35 @@
                       <td>' . $row_sqlQuery['curp'] . '</td>
                       <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
                       <td>' . $row_sqlQuery['detalles'] . '</td>
+                      <td><a data-bs-toggle="modal" data-bs-target="#QR'.$row_sqlQuery['id'].'"><i class="bi bi-qr-code"></i></a></td>
                       <td><span class="badge text-bg-secondary" href="#" type="button" data-bs-toggle="modal" data-bs-target="#editar' . $row_sqlQuery['id'] . '"><i class="bi bi-pencil-square"></i> Editar</span></td>
-                    <tr>';
+                    <tr>
+                    <!-- Modal -->
+                    <div class="modal fade" id="QR'.$row_sqlQuery['id'].'" tabindex="-1" aria-labelledby="QRLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-qr-code"></i> Información QR</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <p><strong>Nombre completo:</strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . '</p>
+                            <p><strong>CURP:</strong> ' . $row_sqlQuery['curp'] . '</p>
+                            <p><strong>Pólvora solicitada:</strong> ' . $row_sqlQuery['cantidad_polvora'] . '</p>
+                            <p><strong>Detalles:</strong> ' . $row_sqlQuery['detalles'] . '</p>
+                            <p><strong></strong></p>
+                            <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"><i class="bi bi-printer-fill"></i> Imprimir</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    ';
+                    
                   }
             echo'</table>';
             ?>
