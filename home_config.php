@@ -93,9 +93,9 @@
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-check-circle-fill"></i> Registrar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#validate"><i class="bi bi-ticket-perforated-fill"></i> Canjear Ticket</a>
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#canjear"><i class="bi bi-ticket-perforated-fill"></i> Canjear Ticket</a>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-qr-code"></i> Verificar Ticket</a>
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#validate"><i class="bi bi-qr-code"></i> Verificar Ticket</a>
               </li>
             </ul>
           </div>
@@ -126,7 +126,7 @@
               <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/polvora.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
               <h2 class="fw-normal">Canjear Ticket</h2>
               <p>Canjea el ticket por pólvora.</p>
-              <p><a class="btn btn-secondary" href="#">Ingresar &raquo;</a></p>
+              <p><a class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#canjear">Ingresar &raquo;</a></p>
             </div> <!-- /.col-lg-4 -->
             <div class="col-lg-4">
               <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/qrstatus.png" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
@@ -188,7 +188,7 @@
                       <td>' . $row_sqlQuery['cantidad_polvora'] . '</td>
                       <td>' . $row_sqlQuery['detalles'] . '</td>
                       <td><a data-bs-toggle="modal" data-bs-target="#QR'.$row_sqlQuery['id'].'"><i class="bi bi-qr-code"></i></a></td>
-                      <td><span class="badge text-bg-secondary" href="#" type="button" data-bs-toggle="modal" data-bs-target="#editar' . $row_sqlQuery['id'] . '"><i class="bi bi-pencil-square"></i> Editar</span></td>
+                      <td><span class="badge text-bg-secondary" type="button" data-bs-toggle="modal" data-bs-target="#editar'.$row_sqlQuery['id'].'"><i class="bi bi-pencil-square"></i> Editar</span></td>
                     <tr>
                     <!-- Modal -->
                     <div class="modal fade" id="QR'.$row_sqlQuery['id'].'" tabindex="-1" aria-labelledby="QRLabel" aria-hidden="true">
@@ -214,6 +214,45 @@
                       </div>
                     </div>
 
+                    <!-- Modal editar-->
+                    <div class="modal fade" id="editar'.$row_sqlQuery['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Alta de polvora</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="prcd/actualizar.php" method="POST"><!--form-->
+                                  <input name="id" value="'.$row_sqlQuery['id'].'" hidden>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value="' . $row_sqlQuery['nombre'] . '" aria-describedby="basic-addon1" name="nombre" required>
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+                                    <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" value="' . $row_sqlQuery['apellidos'] . '" aria-describedby="basic-addon1"  name="apellidos" required>
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
+                                    <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" value="' . $row_sqlQuery['curp'] . '" name="curp" readonly>
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+                                    <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" value="' . $row_sqlQuery['cantidad_polvora'] . '" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" name="cantidad_polvora" readonly>
+                                  </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
+                                  
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+                                    <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" value="' . $row_sqlQuery['detalles'] . '" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
+                                  </div>
+                            </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+                              </div>
+                            </form><!--form-->
+                        </div>
+                      </div>
+                    </div>
                     ';
                     
                   }
@@ -225,10 +264,15 @@
     </main>
   </body>
   <!-- FOOTER -->
+  <?php
+  date_default_timezone_set('America/Mexico_City');
+  setlocale(LC_TIME, 'es_MX.UTF-8');
+  $fecha_entrega = strftime("%Y-%m-%d,%H:%M:%S");
+  ?>
   <footer class="container">
   <hr class="featurette-divider">
     <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
-    <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <p>&copy; 2022-<?php echo $fecha_entrega?> GOLD AX's Inc. &middot; <a href="#"> Aviso de Privacidad</a> &middot; <a href="#">Terminos y Condiciones</a></p>
   </footer>
 </html>
 
@@ -258,10 +302,6 @@
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <p><div id="result-username"></div></p><!-- valida curp -->
                <p><div id="result-username2"></div></p><!-- valida usr -->
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" id="detalles"></textarea>
-              </div>
         </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
@@ -272,36 +312,33 @@
   </div>
 </div>
 
-<!-- Modal editar-->
-<div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal canjear-->
+<div class="modal fade" id="canjear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Alta de polvora</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Validar QR</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="prcd/actualizar.php" method="POST"><!--form-->
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" required>
-              </div>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
-                <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"  name="apellidos" required>
-              </div>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
-                <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" required>
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" name="cantidad_polvora" required>
-              </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
-              
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" ></textarea>
-              </div>
-        </div>
+        <form action="#"><!--form-->
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" for="inputGroupFile02">Guardar</label> <!--  -->
+          </div>
+          <br><!-- Una vez cargado el QR con el botón de examinar, va a aparecer los datos del QR y el botón de canjear para cambiar el estatus del qr -->
+          <hr>
+          <br> 
+          <p><strong>Nombre completo:<!-- </strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . ' --></p>
+          <p><strong>CURP:<!-- </strong> ' . $row_sqlQuery['curp'] . ' --></p>
+          <p><strong>Pólvora solicitada:<!-- </strong> ' . $row_sqlQuery['cantidad_polvora'] . ' --></p>
+          <p><strong>Detalles:<!-- </strong> ' . $row_sqlQuery['detalles'] . ' --></p>
+          <p><strong>QR</strong></p><!-- Mostrar código qr -->
+          <!-- <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p> -->
+          <br>
+          <button type="button" class="btn btn-success"><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
+      </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
             <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
@@ -309,9 +346,9 @@
         </form><!--form-->
     </div>
   </div>
-</div>
+</div> <!-- Termina Modal canjear -->
 
-<!-- Modal Validar-->
+<!-- Modal validar-->
 <div class="modal fade" id="validate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -321,28 +358,16 @@
       </div>
       <div class="modal-body">
         <form action="#"><!--form-->
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre">
-              </div>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
-                <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"  name="apellidos">
-              </div>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
-                <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad">
-              </div>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
-              </div>
-        </div>
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02">
+          </div>
+          <!-- Una vez cargado el QR se muestra el estatus -->
+          <hr>
+          <p>QR Válido</p>
+          <p><i class="bi bi-check-circle></i></p>
+      </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-            <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
           </div>
         </form><!--form-->
     </div>
@@ -404,7 +429,7 @@
 }
   //Función que permite solo Números
   function ValidaSoloNumeros() {
-  if ((event.keyCode < 48) || (event.keyCode > 50)) 
+  if ((event.keyCode < 48) || (event.keyCode > 49)) 
     event.returnValue = false;
   }
 

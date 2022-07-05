@@ -7,15 +7,14 @@
 <?php
 include('qc/qc.php');
 
+$id = $_POST['id'];
 $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
-$cantidad_polvora = $_POST['cantidad_polvora'];
-$curp = $_POST['curp'];
 $detalles = $_POST['detalles'];
-$entregado = 0; 
 
-    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,curp,detalles,cantidad_polvora,entregado) VALUES('$nombre','$apellidos','$curp','$detalles','$cantidad_polvora','$entregado')";
-    $resultado= $conn->query($sqlinsert);
+    /* $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,curp,detalles,cantidad_polvora,entregado) VALUES('$nombre','$apellidos','$curp','$detalles','$cantidad_polvora','$entregado')"; */
+    $sqlUpdate ="UPDATE asistentes SET nombre='$nombre',apellidos='$apellidos',detalles='$detalles' WHERE id='$id'";
+    $resultado= $conn->query($sqlUpdate);
 
 
     if($resultado){

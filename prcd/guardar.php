@@ -18,7 +18,6 @@ $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
 $cantidad_polvora = $_POST['cantidad_polvora'];
 $curp = $_POST['curp'];
-$detalles = $_POST['detalles'];
 $entregado = 0; 
 
 function generarCodigo($longitud) {
@@ -40,7 +39,7 @@ function generarCodigo($longitud) {
     QRcode::png($contatena, $codesDir.$codeFile, 'H', 10); 
     echo '<img class="img-thumbnail" src="'.$codesDir.$codeFile.'" />';
 
-    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,detalles,cantidad_polvora,entregado,codigo,qr) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$detalles','$cantidad_polvora','$entregado','$codigo','$codeFile')";
+    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,cantidad_polvora,entregado,codigo,qr) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$cantidad_polvora','$entregado','$codigo','$codeFile')";
     $resultado= $conn->query($sqlinsert);
 
     if($resultado){
