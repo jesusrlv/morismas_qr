@@ -254,13 +254,13 @@
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
                 <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" id="username" onkeyup="javascript:this.value=this.value.toUpperCase();" onblur="validarInput(this);" required>
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" name="cantidad_polvora" required>
+                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros();ValidaDos();" name="cantidad_polvora" id="cantidad" required>
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <p><div id="result-username"></div></p><!-- valida curp -->
                <p><div id="result-username2"></div></p><!-- valida usr -->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" readonly></textarea>
+                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" id="detalles" readonly></textarea>
               </div>
         </div>
           <div class="modal-footer">
@@ -294,7 +294,7 @@
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
                 <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" required>
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad_polvora" required>
+                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" name="cantidad_polvora" required>
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               
               <div class="input-group mb-3">
@@ -407,6 +407,7 @@
   if ((event.keyCode < 48) || (event.keyCode > 50)) 
     event.returnValue = false;
   }
+
   function curpValida(curp) {
     var re = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0\d|1[0-2])(?:[0-2]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/,
         validado = curp.match(re);
@@ -450,6 +451,18 @@
           });
       });              
   });    
+  </script>
+  <!-- cambiar readonly -->
+  <script>
+    function ValidaDos(){
+    var cant = document.getElementById('cantidad').value;
+    if(cant == 2){
+      document.getElementById('detalles').readOnly = true;
+    }
+   else{
+      document.getElementById('detalles').readOnly = false;
+    }
+  }
   </script>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
