@@ -254,13 +254,13 @@
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
                 <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" id="username" onkeyup="javascript:this.value=this.value.toUpperCase();" onblur="validarInput(this);" required>
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros();ValidaDos();" name="cantidad_polvora" id="cantidad" required>
+                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" oninput="ValidaDos();" name="cantidad_polvora" id="cantidad" required>
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <p><div id="result-username"></div></p><!-- valida curp -->
                <p><div id="result-username2"></div></p><!-- valida usr -->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" id="detalles" readonly></textarea>
+                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" id="detalles"></textarea>
               </div>
         </div>
           <div class="modal-footer">
@@ -299,7 +299,7 @@
               
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" readonly></textarea>
+                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" ></textarea>
               </div>
         </div>
           <div class="modal-footer">
@@ -456,12 +456,15 @@
   <script>
     function ValidaDos(){
     var cant = document.getElementById('cantidad').value;
-    if(cant == 2){
+    if(cant <= 1){
       document.getElementById('detalles').readOnly = true;
     }
-   else{
+   else if(cant = 2){
       document.getElementById('detalles').readOnly = false;
     }
+  //  else if(cant = 0){
+  //     document.getElementById('detalles').readOnly = false;
+  //   }
   }
   </script>
 
