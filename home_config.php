@@ -252,10 +252,12 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
-                <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" required>
+                <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" id="username" onkeyup="javascript:this.value=this.value.toUpperCase();" onblur="validarInput(this);" required>
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad_polvora" required>
+                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" name="cantidad_polvora" required>
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
+              <p><div id="result-username"></div></p><!-- valida curp -->
+               <p><div id="result-username2"></div></p><!-- valida usr -->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
                 <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" readonly></textarea>
@@ -263,7 +265,7 @@
         </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-            <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+            <button type="submit" class="btn btn-primary" id="boton_submit"><i class="bi bi-person-plus"></i> Guardar</button>
           </div>
         </form><!--form-->
     </div>
@@ -294,6 +296,7 @@
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
                 <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" onblur="validarInput(this);" name="cantidad_polvora" required>
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
+              
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
                 <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles" readonly></textarea>
@@ -359,6 +362,46 @@
 </script>
 
 <script>
+  // input
+  function validarInput(input) {
+	var curp = input.value.toUpperCase(),
+    	resultado = document.getElementById("result-username"),
+        valido = "No válido";
+        
+    if (curpValida(curp)) {
+    	valido = "Válido";
+        resultado.innerHTML ='<div class="alert alert-success"><strong><i class="bi bi-info-circle-fill"></i> CORRECTO. </strong> Cadena CURP correcta.</div>';
+    } else {
+        resultado.innerHTML = '<div class="alert alert-danger"><strong><i class="bi bi-exclamation-triangle-fill"></i> ERROR. </strong> Cadena CURP incorrecta.</div><style>#boton_submit{display:none;}</style>';
+    }
+        
+}
+  // Valida CURP
+  function curpValida(curp) {
+	var re = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0\d|1[0-2])(?:[0-2]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/,
+    	validado = curp.match(re);
+	
+    if (!validado)  //Coincide con el formato general?
+    	return false;
+    
+    //Validar que coincida el dígito verificador
+    function digitoVerificador(curp17) {
+        //Fuente https://consultas.curp.gob.mx/CurpSP/
+        var diccionario  = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ",
+            lngSuma      = 0.0,
+            lngDigito    = 0.0;
+        for(var i=0; i<17; i++)
+            lngSuma= lngSuma + diccionario.indexOf(curp17.charAt(i)) * (18 - i);
+        lngDigito = 10 - lngSuma % 10;
+        if(lngDigito == 10)
+            return 0;
+        return lngDigito;
+    }
+    if (validado[2] != digitoVerificador(validado[1])) 
+    	return false;
+        
+	return true; //Validado
+}
   //Función que permite solo Números
   function ValidaSoloNumeros() {
   if ((event.keyCode < 48) || (event.keyCode > 50)) 
@@ -388,6 +431,26 @@
     return true; //Validado
   }
 </script>
+<!-- valida -->
+<script type="text/javascript">
+  $(document).ready(function() {	
+      $('#username').on('blur', function() {
+          $('#result-username2').html('<img src="img/loader.gif" />').fadeOut(1000);
+  
+          var username = $(this).val();		
+          var dataString = 'username='+username;
+  
+          $.ajax({
+              type: "POST",
+              url: "verficacion.php",
+              data: dataString,
+              success: function(data) {
+                  $('#result-username2').fadeIn(1000).html(data);
+              }
+          });
+      });              
+  });    
+  </script>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
