@@ -9,7 +9,7 @@ if (isset($_POST)) {
     );
  
     if ($result->num_rows > 0) {
-        echo '<div class="alert alert-danger"><strong>ERROR.</strong> Ya se ha registrado este usuario anteriormente.</div>
+        echo '<div class="alert alert-danger"><strong><i class="bi bi-x-circle-fill"></i> ERROR.</strong> Ya se ha registrado este usuario anteriormente.</div>
         
         <style>
             #boton_submit{display:none;}
