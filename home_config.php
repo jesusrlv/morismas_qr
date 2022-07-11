@@ -260,6 +260,110 @@
             echo'</table>';
             ?>
           </div>
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered table-sm align-middle mt-4">
+              <thead style="background-color:#7B8DAB;" class="text-light align-middle">
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Sel. <br><input class="form-check-input" type="checkbox" value=""></th>
+                    <th scope="col">Nombre(s)</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Fecha de Registro</th>
+                    <th scope="col">CURP</th>
+                    <th scope="col">Cantidad Pólvora</th>
+                    <th scope="col">Detalles</th>
+                    <th scope="col">QR</th>
+                    <th scope="col">Editar</th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+                <?php
+                  include('query.php');
+                  $x = 0;
+                  while ($row_sqlQueryEntregado = $resultadoQueryEntregado->fetch_assoc()) {
+                    $x++;
+                    echo '
+                    <tr class="text-center bg-white">
+                      <td>' . $x . '</td>
+                      <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQueryEntregado['id'].'"></td>
+                      <td>' . $row_sqlQueryEntregado['nombre'] . '</td>
+                      <td>' . $row_sqlQueryEntregado['apellidos'] . '</td>
+                      <td>' . $row_sqlQueryEntregado['fecha_entrega'] . '</td>
+                      <td>' . $row_sqlQueryEntregado['curp'] . '</td>
+                      <td>' . $row_sqlQueryEntregado['cantidad_polvora'] . '</td>
+                      <td>' . $row_sqlQueryEntregado['detalles'] . '</td>
+                      <td><a data-bs-toggle="modal" data-bs-target="#QR'.$row_sqlQueryEntregado['id'].'"><i class="bi bi-qr-code"></i></a></td>
+                      <td><span class="badge text-bg-secondary" type="button" data-bs-toggle="modal" data-bs-target="#editar'.$row_sqlQueryEntregado['id'].'"><i class="bi bi-pencil-square"></i> Editar</span></td>
+                    <tr>
+                    <!-- Modal -->
+                    <div class="modal fade" id="QR'.$row_sqlQueryEntregado['id'].'" tabindex="-1" aria-labelledby="QRLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-qr-code"></i> Información QR</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <p><strong>Nombre completo:</strong> ' . $row_sqlQueryEntregado['nombre'] . ' ' . $row_sqlQueryEntregado['apellidos'] . '</p>
+                            <p><strong>CURP:</strong> ' . $row_sqlQueryEntregado['curp'] . '</p>
+                            <p><strong>Pólvora solicitada:</strong> ' . $row_sqlQueryEntregado['cantidad_polvora'] . '</p>
+                            <p><strong>Detalles:</strong> ' . $row_sqlQueryEntregado['detalles'] . '</p>
+                            <p><strong></strong></p>
+                            <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQueryEntregado['qr'].'"></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"><i class="bi bi-printer-fill"></i> Imprimir</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Modal editar-->
+                    <div class="modal fade" id="editar'.$row_sqlQueryEntregado['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Alta de polvora</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="prcd/actualizar.php" method="POST"><!--form-->
+                                  <input name="id" value="'.$row_sqlQueryEntregado['id'].'" hidden>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" value="' . $row_sqlQueryEntregado['nombre'] . '" aria-describedby="basic-addon1" name="nombre" required>
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+                                    <input type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" value="' . $row_sqlQueryEntregado['apellidos'] . '" aria-describedby="basic-addon1"  name="apellidos" required>
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
+                                    <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" value="' . $row_sqlQueryEntregado['curp'] . '" name="curp" readonly>
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+                                    <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" value="' . $row_sqlQueryEntregado['cantidad_polvora'] . '" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" name="cantidad_polvora" readonly>
+                                  </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
+                                  
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+                                    <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" value="' . $row_sqlQueryEntregado['detalles'] . '" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
+                                  </div>
+                            </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
+                              </div>
+                            </form><!--form-->
+                        </div>
+                      </div>
+                    </div>
+                    ';
+                    
+                  }
+            echo'</table>';
+            ?>
+          </div>
         </div><!-- /.container -->
       </div><!-- /.album -->
     </main>
@@ -318,7 +422,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Validar QR</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Canjear Ticket</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -350,19 +454,10 @@
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
               cancelButtonColor: '#d33',
-              confirmButtonText: 'Sí'
+              confirmButtonText: 'Sí, canjear'
             
-            }).then((result) => {
+            }).then(function(){window.location='prcd/actualizarqrstatus.php';})
 
-              if (result.isConfirmed) {
-                Swal.fire(
-                  'Ticket canjeado!',
-                  'Se ha entregado la mercancía',
-                  'success'
-                )
-              }
-            })
-          
           }
           </script>
           <!-- Termina SWAL -->

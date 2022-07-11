@@ -7,8 +7,11 @@
 <?php
     include('prcd/qc/qc.php');
 
-    $sqlQuery ="SELECT * FROM asistentes ORDER BY fecha_entrega ASC";
+    $sqlQuery ="SELECT * FROM asistentes WHERE entregado = 0 ORDER BY fecha_entrega ASC";
     $resultadoQuery = $conn->query($sqlQuery);
+
+    $sqlQueryEntregado ="SELECT * FROM asistentes WHERE entregado = 1 ORDER BY fecha_entrega ASC";
+    $resultadoQueryEntregado = $conn->query($sqlQueryEntregado);
 
 ?>
 
