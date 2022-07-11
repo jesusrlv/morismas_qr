@@ -17,6 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
       .bd-placeholder-img {
@@ -324,7 +325,6 @@
         <form action="#"><!--form-->
           <div class="input-group mb-3">
             <input type="file" class="form-control" id="inputGroupFile02">
-            <label class="input-group-text" for="inputGroupFile02">Guardar</label> <!--  -->
           </div>
           <br><!-- Una vez cargado el QR con el botón de examinar, va a aparecer los datos del QR y el botón de canjear para cambiar el estatus del qr -->
           <hr>
@@ -336,7 +336,36 @@
           <p><strong>QR</strong></p><!-- Mostrar código qr -->
           <!-- <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p> -->
           <br>
-          <button type="button" class="btn btn-success"><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-success" onclick="entrega()"><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
+          </div>
+          <!-- Inicia SWAL -->
+          <script type="text/javascript">
+          function entrega() {
+            
+            Swal.fire({
+              title: 'Estas seguro que deseas canjear el ticket?',
+              text: "Ojo, no lo podrás revertir!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Sí'
+            
+            }).then((result) => {
+
+              if (result.isConfirmed) {
+                Swal.fire(
+                  'Ticket canjeado!',
+                  'Se ha entregado la mercancía',
+                  'success'
+                )
+              }
+            })
+          
+          }
+          </script>
+          <!-- Termina SWAL -->
       </div>
 
           <div class="modal-footer">
