@@ -155,7 +155,8 @@
               </div>
             </div>
             <div class="col">
-            <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
+              <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir lista</button>
+              <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
             </div>
           </div>
           <div class="table-responsive">
@@ -274,7 +275,8 @@
               </div>
             </div>
             <div class="col">
-            <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
+              <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir lista</button>
+              <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
             </div>
           </div>
           <div class="table-responsive">
@@ -447,6 +449,15 @@
           <div class="input-group mb-3">
             <input type="file" class="form-control" id="inputGroupFile02">
           </div>
+          <div class="row">
+            <div class="col-8 mt-1">
+              <p><button class="btn btn-primary" onclick="abrirCamara()">Open Cam</button></p>
+            </div>
+            <div class="col-4 mt-1 text-end">
+              <p><button class="btn btn-primary"><i class="bi bi-search"> Buscar</i></button></p>
+            </div>
+          </div>
+          <p><input type="text" name="text" id="text" readonly class="form-control"></p>
           <br><!-- Una vez cargado el QR con el botón de examinar, va a aparecer los datos del QR y el botón de canjear para cambiar el estatus del qr -->
           <hr>
           <br> 
@@ -503,9 +514,16 @@
             <input type="file" class="form-control" id="inputGroupFile02">
             
           </div>
-          <p><button class="btn btn-primary" onclick="abrirCamara()">Open Cam</button></p>
+          <div class="row">
+            <div class="col-8 mt-1">
+              <p><button class="btn btn-primary" onclick="abrirCamara()">Open Cam</button></p>
+            </div>
+            <div class="col-4 mt-1 text-end">
+              <p><button class="btn btn-primary"><i class="bi bi-search"> Buscar</i></button></p>
+            </div>
+          </div>
           <p><input type="text" name="text" id="text" readonly class="form-control"></p>
-
+          
          
             <script type="text/javascript">
               function abrirCamara(){
