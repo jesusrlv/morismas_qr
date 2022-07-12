@@ -141,7 +141,7 @@
         <div class="container">
           <hr class="featurette-divider">
 
-          <p class="fs-3"><i class="bi bi-list-check"></i> Lista de personas</p>
+          <p class="fs-3"><i class="bi bi-dash-circle-fill text-warning"></i> Lista de No Entregados</p>
 
           <div class="row">
             <div class="col">
@@ -151,9 +151,6 @@
               </div>
             </div>
             <div class="col">
-              <!-- <div class="input-group mb-4 justify-content-end">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar categoría</button>
-              </div> -->
             </div>
           </div>
           <div class="table-responsive">
@@ -260,6 +257,20 @@
             echo'</table>';
             ?>
           </div>
+          <hr class="featurette-divider">
+
+          <p class="fs-3"><i class="bi bi-check-circle-fill text-success"></i> Lista de Entregados</p>
+
+          <div class="row">
+            <div class="col">
+              <div class="input-group mb-4 w-100">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput2">
+              </div>
+            </div>
+            <div class="col">
+            </div>
+          </div>
           <div class="table-responsive">
             <table class="table table-hover table-bordered table-sm align-middle mt-4">
               <thead style="background-color:#7B8DAB;" class="text-light align-middle">
@@ -276,7 +287,7 @@
                     <th scope="col">Editar</th>
                 </tr>
               </thead>
-              <tbody id="myTable">
+              <tbody id="myTable2">
                 <?php
                   include('query.php');
                   $x = 0;
@@ -504,6 +515,15 @@
       $("#myInput").on("keyup", function () {
           var value = $(this).val().toLowerCase();
           $("#myTable tr").filter(function () {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+      });
+  });
+  // input2
+  $(document).ready(function () {
+      $("#myInput2").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#myTable2 tr").filter(function () {
               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
           });
       });
