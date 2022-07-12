@@ -20,7 +20,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <script type="text/javascript" src="instascan.min.js"></script>
+    <!-- <script src="instascan.min.js"></script> -->
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
 
     <style>
@@ -528,11 +529,11 @@
             <script type="text/javascript">
               function abrirCamara(){
 
-              let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+              let scanner = new Instascan.Scanner({video:document.getElementById('preview') });
               // scanner.addListener('scan', function (content) {
               //   console.log(content);
               // });
-              Instascan.Camera.getCameras().then(function (cameras) {
+              Instascan.Camera.getCameras().then(function(cameras) {
                 if (cameras.length > 0) {
                   scanner.start(cameras[0]);
                 } else {
@@ -556,7 +557,7 @@
          
           <p>QR Válido</p>
           <p><i class="bi bi-check-circle"></i></p>
-          <video id="preview" class="h-50"></video>
+          <video id="preview" class="w-100"></video>
       </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
