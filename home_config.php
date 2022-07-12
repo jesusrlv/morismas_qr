@@ -19,6 +19,10 @@
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+    <script type="text/javascript" src="instascan.min.js"></script>
+
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -497,11 +501,44 @@
         <form action="#"><!--form-->
           <div class="input-group mb-3">
             <input type="file" class="form-control" id="inputGroupFile02">
+            
           </div>
+          <p><button class="btn btn-primary" onclick="abrirCamara()">Open Cam</button></p>
+          <p><input type="text" name="text" id="text" readonly class="form-control"></p>
+
+         
+            <script type="text/javascript">
+              function abrirCamara(){
+
+              let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+              // scanner.addListener('scan', function (content) {
+              //   console.log(content);
+              // });
+              Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                  scanner.start(cameras[0]);
+                } else {
+                  // console.error('No cameras found.');
+                  alert("No se encontró cámara");
+                }
+              }).catch(function (e){
+                console.error(e);
+              }); 
+
+            }
+
+            scanner.addListener('scan',function(c){
+                document.getElementById("text").value = c;
+                });
+
+            </script>
+
           <!-- Una vez cargado el QR se muestra el estatus -->
           <hr>
+         
           <p>QR Válido</p>
-          <p><i class="bi bi-check-circle></i></p>
+          <p><i class="bi bi-check-circle"></i></p>
+          <video id="preview" class="h-50"></video>
       </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
