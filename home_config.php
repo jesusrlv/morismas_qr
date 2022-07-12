@@ -141,7 +141,7 @@
         <div class="container">
           <hr class="featurette-divider">
 
-          <p class="fs-3"><i class="bi bi-dash-circle-fill text-warning"></i> Lista de No Entregados</p>
+          <p class="fs-3"><i class="bi bi-dash-circle-fill text-warning"> Lista de Tickets Activos</i></p>
 
           <div class="row">
             <div class="col">
@@ -151,6 +151,7 @@
               </div>
             </div>
             <div class="col">
+            <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
             </div>
           </div>
           <div class="table-responsive">
@@ -259,7 +260,7 @@
           </div>
           <hr class="featurette-divider">
 
-          <p class="fs-3"><i class="bi bi-check-circle-fill text-success"></i> Lista de Entregados</p>
+          <p class="fs-3"><i class="bi bi-check-circle-fill text-success"> Lista de Entregados</i></p>
 
           <div class="row">
             <div class="col">
@@ -269,6 +270,7 @@
               </div>
             </div>
             <div class="col">
+            <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
             </div>
           </div>
           <div class="table-responsive">
