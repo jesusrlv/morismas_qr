@@ -1,4 +1,6 @@
 <?php
+// if (isset($POST['text'])){
+
 include('qc/qc.php');
 
 $concatenado = $_POST['text'];
@@ -8,6 +10,22 @@ $concatenado = $_POST['text'];
     $row_sql_catalogo = $resultado_Query->fetch_assoc();
 
     echo '
+          <span class="h5">Estatus de entrega:</span>';
+    if($row_sql_catalogo['entregado']==1){
+        echo '<div class="alert alert-success text-center" role="alert">
+            Pólvora entregada
+            </div>
+        ';
+    }
+    else{
+        echo '<div class="alert alert-danger text-center" role="alert">
+        Pólvora NO Entregada
+        </div>
+    ';
+    }
+    
+    echo '
+          <hr>
           <p><strong>Nombre completo:</strong> ' . $row_sql_catalogo['nombre'] . ' ' . $row_sql_catalogo['apellidos'] . '</p>
           <p><strong>CURP:</strong> ' . $row_sql_catalogo['curp'] . '</p>
           <p><strong>Pólvora solicitada:</strong> ' . $row_sql_catalogo['cantidad_polvora'] . '</p>
@@ -32,5 +50,7 @@ $concatenado = $_POST['text'];
           </script>
           <!-- Termina SWAL -->
     ";
+
+// }
 
 ?>

@@ -463,10 +463,6 @@ $('#printButton').on('click', function () {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
-          
-          
-
             <form action="#" id="form1"><!--form-->
               <video id="previewCanje" class="w-100"></video>
               <p><input type="text" name="text" id="textQRCanje" readonly="" class="form-control"></p>
@@ -480,6 +476,7 @@ $('#printButton').on('click', function () {
               </div>
             </form><!--form-->
           <hr>
+          
           <br> 
           <p id="queryDatos"></p>
           
@@ -498,9 +495,6 @@ $('#printButton').on('click', function () {
     </div>
   </div>
 <!-- código camara -->
-          
-          
-         
             <script type="text/javascript">
               
               function abrirCamaraCanje(){
@@ -525,9 +519,6 @@ $('#printButton').on('click', function () {
                 });
 
             }
-
-            
-
             </script>
 
           <!-- Una vez cargado el QR se muestra el estatus -->
