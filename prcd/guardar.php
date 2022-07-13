@@ -39,7 +39,7 @@ function generarCodigo($longitud) {
     QRcode::png($contatena, $codesDir.$codeFile, 'H', 10); 
     echo '<img class="img-thumbnail" src="'.$codesDir.$codeFile.'" />';
 
-    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,cantidad_polvora,entregado,codigo,qr) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$cantidad_polvora','$entregado','$codigo','$codeFile')";
+    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,cantidad_polvora,entregado,codigo,qr,concatenado) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$cantidad_polvora','$entregado','$codigo','$codeFile','$contatena')";
     $resultado= $conn->query($sqlinsert);
 
     if($resultado){

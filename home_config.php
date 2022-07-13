@@ -446,29 +446,29 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="#"><!--form-->
-          <div class="input-group mb-3">
-            <input type="file" class="form-control" id="inputGroupFile02">
-          </div>
-          <div class="row">
-            <div class="col-8 mt-1">
-              <p><button class="btn btn-primary" onclick="abrirCamara()">Open Cam</button></p>
-            </div>
-            <div class="col-4 mt-1 text-end">
-              <p><button class="btn btn-primary"><i class="bi bi-search"> Buscar</i></button></p>
-            </div>
-          </div>
-          <p><input type="text" name="text" id="text" readonly class="form-control"></p>
-          <br><!-- Una vez cargado el QR con el botón de examinar, va a aparecer los datos del QR y el botón de canjear para cambiar el estatus del qr -->
+        
+          
+          
+
+            <form action="#" id="form1"><!--form-->
+              <p><input type="text" name="text" id="textQRCanje" readonly="" class="form-control"></p>
+             
+              <div class="row">
+                <div class="col-8 mt-1">
+                  <p><button class="btn btn-primary" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
+                </div>
+                <div class="col-4 mt-1 text-end">
+                  <p> <button class="btn btn-primary" type="submit"><i class="bi bi-search"> Buscar</i></button></p>
+                </div>
+              </div>
+            </form><!--form-->
+
           <hr>
           <br> 
-          <p><strong>Nombre completo:<!-- </strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . ' --></p>
-          <p><strong>CURP:<!-- </strong> ' . $row_sqlQuery['curp'] . ' --></p>
-          <p><strong>Pólvora solicitada:<!-- </strong> ' . $row_sqlQuery['cantidad_polvora'] . ' --></p>
-          <p><strong>Detalles:<!-- </strong> ' . $row_sqlQuery['detalles'] . ' --></p>
-          <p><strong>QR</strong></p><!-- Mostrar código qr -->
-          <!-- <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p> -->
+          <p id="queryDatos"></p>
+          
           <br>
+          <video id="previewCanje" class="w-100"></video>
           <div class="d-grid gap-2">
             <button type="button" class="btn btn-success" onclick="entrega()"><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
           </div>
@@ -496,9 +496,45 @@
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
             <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Guardar</button>
           </div>
-        </form><!--form-->
+        
     </div>
   </div>
+<!-- código camara -->
+          
+          
+         
+            <script type="text/javascript">
+              
+              function abrirCamaraCanje(){
+
+              let scanner = new Instascan.Scanner({video:document.getElementById('previewCanje') });
+              scanner.addListener('scan', function (content) {
+                console.log(content);
+              });
+              Instascan.Camera.getCameras().then(function(cameras) {
+                if (cameras.length > 0) {
+                  scanner.start(cameras[0]);
+                } else {
+                  // console.error('No cameras found.');
+                  alert("No se encontró cámara");
+                }
+              }).catch(function (e){
+                console.error(e);
+              }); 
+
+              scanner.addListener('scan',function(c){
+                document.getElementById('textQRCanje').value=c;
+                });
+
+            }
+
+            
+
+            </script>
+
+          <!-- Una vez cargado el QR se muestra el estatus -->
+<!-- código camara -->
+
 </div> <!-- Termina Modal canjear -->
 
 <!-- Modal validar-->
@@ -697,6 +733,30 @@
   //   }
   }
   </script>
+
+  <!-- query -->
+  <script>
+    // function consultarQR(){
+          $(document).ready(function(){
+          var form=$("#form1");
+          $("#form1").submit(function(event){
+          $.ajax({
+                  type:"POST",
+                  url:"prcd/query1.php",
+                  data:form.serialize(),
+                  dataType: "html",
+                  async:false,
+                  cache: false,
+                    success: function(data) {
+                      $("#queryDatos").html(data);                  
+                    }               
+                  });
+                  
+                  event.preventDefault();
+          });
+          });
+      // } 
+        </script>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
