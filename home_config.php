@@ -523,7 +523,7 @@
               <p><button class="btn btn-primary"><i class="bi bi-search"> Buscar</i></button></p>
             </div>
           </div>
-          <p><input type="text" name="text" id="text" readonly="" class="form-control"></p>
+          <p><input type="text" name="text" id="textQR" readonly="" class="form-control"></p>
           
          
             <script type="text/javascript">
@@ -546,7 +546,7 @@
               }); 
 
               scanner.addListener('scan',function(c){
-                document.getElementById('text').value=c;
+                document.getElementById('textQR').value=c;
                 });
 
             }
