@@ -332,7 +332,7 @@
                             <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQueryEntregado['qr'].'"></p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary"><i class="bi bi-printer-fill"></i> Imprimir</button>
+                            <button type="button" class="btn btn-primary" id="printButton"><i class="bi bi-printer-fill"></i> Imprimir</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                           </div>
                         </div>
@@ -400,6 +400,23 @@
     <p>&copy; 2022-<?php echo $fecha_entrega?> GOLD AX's Inc. &middot; <a href="#"> Aviso de Privacidad</a> &middot; <a href="#">Terminos y Condiciones</a></p>
   </footer>
 </html>
+<!-- Inicia impresion de modal -->
+<script>
+$('#printButton').on('click', function () {
+    if ($('.modal').is(':visible')) {
+        var modalId = $(event.target).closest('.modal').attr('id');
+        $('body').css('visibility', 'hidden');
+        $("#" + modalId).css('visibility', 'visible');
+        $('#' + modalId).removeClass('modal');
+        window.print();
+        $('body').css('visibility', 'visible');
+        $('#' + modalId).addClass('modal');
+    } else {
+        window.print();
+    }
+});
+</script>
+<!-- Termina impresion de modal -->
 
 <!-- Modal alta-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
