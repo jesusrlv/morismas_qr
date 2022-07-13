@@ -12,5 +12,25 @@ $concatenado = $_POST['text'];
           <p><strong>CURP:</strong> ' . $row_sql_catalogo['curp'] . '</p>
           <p><strong>Pólvora solicitada:</strong> ' . $row_sql_catalogo['cantidad_polvora'] . '</p>
     ';
+    echo "
+    <!-- Inicia SWAL -->
+          <script type='text/javascript'>
+          function entrega() {
+            
+            Swal.fire({
+              title: 'Estas seguro que deseas canjear el ticket?',
+              text: 'Ojo, no lo podrás revertir!',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Sí, canjear'
+            
+            }).then(function(){window.location='prcd/actualizarqrstatus.php?id=". $row_sql_catalogo['id'] ."';})
+
+          }
+          </script>
+          <!-- Termina SWAL -->
+    ";
 
 ?>

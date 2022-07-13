@@ -451,8 +451,8 @@
           
 
             <form action="#" id="form1"><!--form-->
+              <video id="previewCanje" class="w-100"></video>
               <p><input type="text" name="text" id="textQRCanje" readonly="" class="form-control"></p>
-             
               <div class="row">
                 <div class="col-8 mt-1">
                   <p><button class="btn btn-primary" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
@@ -462,34 +462,15 @@
                 </div>
               </div>
             </form><!--form-->
-
           <hr>
           <br> 
           <p id="queryDatos"></p>
           
           <br>
-          <video id="previewCanje" class="w-100"></video>
           <div class="d-grid gap-2">
             <button type="button" class="btn btn-success" onclick="entrega()"><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
           </div>
-          <!-- Inicia SWAL -->
-          <script type="text/javascript">
-          function entrega() {
-            
-            Swal.fire({
-              title: 'Estas seguro que deseas canjear el ticket?',
-              text: "Ojo, no lo podrás revertir!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Sí, canjear'
-            
-            }).then(function(){window.location='prcd/actualizarqrstatus.php';})
-
-          }
-          </script>
-          <!-- Termina SWAL -->
+          
       </div>
 
           <div class="modal-footer">
