@@ -35,7 +35,7 @@ $concatenado = $_POST['text'];
     if($row_sql_catalogo['entregado']==1){
       echo '<br>
       <div class="d-grid gap-2">
-        <button type="button" class="btn btn-success" onclick="entrega()" disabled><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
+        <button type="button" class="btn btn-outline-success" onclick="entrega()" disabled><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
       </div>
       ';
   }
