@@ -20,8 +20,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <!-- <script src="instascan.min.js"></script> -->
-    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="instascan.min.js"></script>
+    <!-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> -->
 
 
     <style>
@@ -465,7 +465,7 @@ $('#printButton').on('click', function () {
       <div class="modal-body">
             <form action="#" id="form1"><!--form-->
               <video id="previewCanje" class="w-100"></video>
-              <p><input type="text" name="text" id="textQRCanje" readonly="" class="form-control"></p>
+              <p><input type="text" name="text" id="textQRCanje" readonly class="form-control" REQUIRED></p>
               <div class="row">
                 <div class="col-6 mt-1">
                   <p><button class="btn btn-primary" type="button" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>

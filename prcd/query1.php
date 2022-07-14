@@ -9,6 +9,17 @@ $concatenado = $_POST['text'];
     $resultado_Query = $conn->query($Query);
     $row_sql_catalogo = $resultado_Query->fetch_assoc();
 
+    $resultado_rows = mysqli_num_rows($resultado_Query);
+    if($resultado_rows == 0){
+        echo '
+        <div class="alert alert-danger text-center mt-1 pt-2 pb-2" role="alert">
+            <i class="bi bi-x-circle-fill"></i> QR NO VÁLIDO
+            
+        </div>
+        ';
+    }
+
+    else{
     echo '
           <span class="h5">Estatus de entrega:</span>';
     if($row_sql_catalogo['entregado']==1){
@@ -68,6 +79,6 @@ $concatenado = $_POST['text'];
           <!-- Termina SWAL -->
     ";
 
-// }
+}
 
 ?>
