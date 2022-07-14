@@ -467,10 +467,10 @@ $('#printButton').on('click', function () {
               <video id="previewCanje" class="w-100"></video>
               <p><input type="text" name="text" id="textQRCanje" readonly="" class="form-control"></p>
               <div class="row">
-                <div class="col-8 mt-1">
-                  <p><button class="btn btn-primary" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
+                <div class="col-6 mt-1">
+                  <p><button class="btn btn-primary" type="button" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
                 </div>
-                <div class="col-4 mt-1 text-end">
+                <div class="col-6 mt-1 text-end">
                   <p> <button class="btn btn-primary" type="submit"><i class="bi bi-search"> Buscar</i></button></p>
                 </div>
               </div>
@@ -480,10 +480,10 @@ $('#printButton').on('click', function () {
           <br> 
           <p id="queryDatos"></p>
           
-          <br>
+          <!-- <br>
           <div class="d-grid gap-2">
             <button type="button" class="btn btn-success" onclick="entrega()"><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
-          </div>
+          </div> -->
           
       </div>
 
@@ -516,9 +516,15 @@ $('#printButton').on('click', function () {
 
               scanner.addListener('scan',function(c){
                 document.getElementById('textQRCanje').value=c;
+                scanner.stop();
+                });
+
+                $('#canjear').on('hide.bs.modal', function () { 
+                  scanner.stop();
                 });
 
             }
+
             </script>
 
           <!-- Una vez cargado el QR se muestra el estatus -->
@@ -535,20 +541,23 @@ $('#printButton').on('click', function () {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="#"><!--form-->
-          <div class="input-group mb-3">
-            <input type="file" class="form-control" id="inputGroupFile02">
-            
-          </div>
+        <form action="#" id="form2"><!--form-->
+          
           <div class="row">
             <div class="col-8 mt-1">
-              <p><button class="btn btn-primary" onclick="abrirCamara()">Open Cam</button></p>
+              <p><button class="btn btn-primary" type="button" onclick="abrirCamara()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
             </div>
             <div class="col-4 mt-1 text-end">
-              <p><button class="btn btn-primary"><i class="bi bi-search"> Buscar</i></button></p>
+              <p><button class="btn btn-primary" type="submit"><i class="bi bi-search"> Buscar</i></button></p>
             </div>
+
+        
           </div>
           <p><input type="text" name="text" id="textQR" readonly="" class="form-control"></p>
+        </form><!--form-->
+
+
+          <p id="queryDatos2"></p>
           
          
             <script type="text/javascript">
@@ -572,25 +581,24 @@ $('#printButton').on('click', function () {
 
               scanner.addListener('scan',function(c){
                 document.getElementById('textQR').value=c;
+                scanner.stop();
+                });
+
+                $('#validate').on('hide.bs.modal', function () { 
+                  scanner.stop();
                 });
 
             }
-
-            
-
             </script>
 
           <!-- Una vez cargado el QR se muestra el estatus -->
           <hr>
-         
-          <p>QR Válido</p>
-          <p><i class="bi bi-check-circle"></i></p>
           <video id="preview" class="w-100"></video>
       </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
           </div>
-        </form><!--form-->
+        
     </div>
   </div>
 </div> <!-- Termina Modal validar -->
@@ -745,7 +753,31 @@ $('#printButton').on('click', function () {
           });
           });
       // } 
-        </script>
+  </script>
+  <script>
+    // function consultarQR(){
+          $(document).ready(function(){
+          var form=$("#form2");
+          $("#form2").submit(function(event){
+          $.ajax({
+                  type:"POST",
+                  url:"prcd/query2.php",
+                  data:form.serialize(),
+                  dataType: "html",
+                  async:false,
+                  cache: false,
+                    success: function(data) {
+                      $("#queryDatos2").html(data);                  
+                    }               
+                  });
+                  
+                  event.preventDefault();
+          });
+          });
+      // } 
+    </script>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- https://openbase.com/js/instascan/documentation -->
 

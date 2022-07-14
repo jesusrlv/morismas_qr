@@ -12,13 +12,13 @@ $concatenado = $_POST['text'];
     echo '
           <span class="h5">Estatus de entrega:</span>';
     if($row_sql_catalogo['entregado']==1){
-        echo '<div class="alert alert-success text-center" role="alert">
+        echo '<div class="alert alert-success text-center mt-1 pt-2 pb-2" role="alert">
             Pólvora entregada
             </div>
         ';
     }
     else{
-        echo '<div class="alert alert-danger text-center" role="alert">
+        echo '<div class="alert alert-danger text-center mt-1 pt-2 pb-2" role="alert">
         Pólvora NO Entregada
         </div>
     ';
@@ -29,7 +29,24 @@ $concatenado = $_POST['text'];
           <p><strong>Nombre completo:</strong> ' . $row_sql_catalogo['nombre'] . ' ' . $row_sql_catalogo['apellidos'] . '</p>
           <p><strong>CURP:</strong> ' . $row_sql_catalogo['curp'] . '</p>
           <p><strong>Pólvora solicitada:</strong> ' . $row_sql_catalogo['cantidad_polvora'] . '</p>
+
+          
     ';
+    if($row_sql_catalogo['entregado']==1){
+      echo '<br>
+      <div class="d-grid gap-2">
+        <button type="button" class="btn btn-success" onclick="entrega()" disabled><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
+      </div>
+      ';
+  }
+  else{
+      echo '<br>
+      <div class="d-grid gap-2">
+        <button type="button" class="btn btn-success" onclick="entrega()"><i class="bi bi-box-arrow-up-right"></i> Entregar</button>  
+      </div>
+  ';
+  }
+
     echo "
     <!-- Inicia SWAL -->
           <script type='text/javascript'>
