@@ -21,6 +21,7 @@
 
 
     <script src="instascan.min.js"></script>
+    <script src="print.js"></script>
     <!-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> -->
 
 
@@ -400,8 +401,9 @@
     <p>&copy; 2022-<?php echo $fecha_entrega?> GOLD AX's Inc. &middot; <a href="#"> Aviso de Privacidad</a> &middot; <a href="#">Terminos y Condiciones</a></p>
   </footer>
 </html>
+
 <!-- Inicia impresion de modal -->
-<script>
+<!-- <script>
 $('#printButton').on('click', function () {
     if ($('.modal').is(':visible')) {
         var modalId = $(event.target).closest('.modal').attr('id');
@@ -415,7 +417,7 @@ $('#printButton').on('click', function () {
         window.print();
     }
 });
-</script>
+</script> -->
 <!-- Termina impresion de modal -->
 
 <!-- Modal alta-->
