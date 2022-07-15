@@ -19,9 +19,9 @@
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="instascan.min.js"></script>
-    <script src="print.js"></script>
+    <script src="print.js" type="text/javascript"></script>
     <!-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> -->
 
 
@@ -213,7 +213,7 @@
                             <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary"><i class="bi bi-printer-fill"></i> Imprimir</button>
+                            <button type="button" class="btn btn-primary" id="printButton"><i class="bi bi-printer-fill"></i> Imprimir</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                           </div>
                         </div>

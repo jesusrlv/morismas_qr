@@ -1,6 +1,7 @@
 $(document).ready(function () {
-    $('#printButton').on('click', function () {
+    $('#printButton').on('click', function() {
         if ($('.modal').is(':visible')) {
+            console.log('si');
             var modalId = $(event.target).closest('.modal').attr('id');
             $('body').css('visibility', 'hidden');
             $("#" + modalId).css('visibility', 'visible');
