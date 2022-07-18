@@ -1,16 +1,10 @@
-$(document).ready(function () {
-    $('#printButton').on('click', function() {
-        if ($('.modal').is(':visible')) {
-            console.log('si');
-            var modalId = $(event.target).closest('.modal').attr('id');
-            $('body').css('visibility', 'hidden');
-            $("#" + modalId).css('visibility', 'visible');
-            $('#' + modalId).removeClass('modal');
-            window.print();
-            $('body').css('visibility', 'visible');
-            $('#' + modalId).addClass('modal');
-        } else {
-            window.print();
-        }
-    })
-});
+function imprimirSeleccion(nombre) {
+    var ficha = document.getElementById(nombre);
+    var ventimp = window.open(' ', 'popimpr');
+    var texto = "Morismas de Bracho";
+    ventimp.document.write(texto);
+    ventimp.document.write(ficha.innerHTML);
+    ventimp.document.close();
+    ventimp.print();
+    ventimp.close();
+}

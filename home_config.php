@@ -204,7 +204,7 @@
                             <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-qr-code"></i> Información QR</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body">
+                          <div class="modal-body" id="div_print'.$row_sqlQuery['id'].'">
                             <p><strong>Nombre completo:</strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . '</p>
                             <p><strong>CURP:</strong> ' . $row_sqlQuery['curp'] . '</p>
                             <p><strong>Pólvora solicitada:</strong> ' . $row_sqlQuery['cantidad_polvora'] . '</p>
@@ -213,7 +213,9 @@
                             <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="printButton"><i class="bi bi-printer-fill"></i> Imprimir</button>
+                  ';?>
+                            <a type="button" class="btn btn-primary" href="javascript:imprimirSeleccion('div_print<?php echo $row_sqlQuery['id']?>')"><i class="bi bi-printer-fill"></i> Imprimir</a>
+                           <?php echo '
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                           </div>
                         </div>
@@ -304,6 +306,7 @@
                   while ($row_sqlQueryEntregado = $resultadoQueryEntregado->fetch_assoc()) {
                     $x++;
                     echo '
+                    <input id="imprime2" value="'.$row_sqlQueryEntregado['id'].'" hidden>
                     <tr class="text-center bg-white">
                       <td>' . $x . '</td>
                       <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQueryEntregado['id'].'"></td>
@@ -324,7 +327,7 @@
                             <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-qr-code"></i> Información QR</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body">
+                          <div class="modal-body" id="div_print'.$row_sqlQueryEntregado['id'].'">
                             <p><strong>Nombre completo:</strong> ' . $row_sqlQueryEntregado['nombre'] . ' ' . $row_sqlQueryEntregado['apellidos'] . '</p>
                             <p><strong>CURP:</strong> ' . $row_sqlQueryEntregado['curp'] . '</p>
                             <p><strong>Pólvora solicitada:</strong> ' . $row_sqlQueryEntregado['cantidad_polvora'] . '</p>
@@ -332,8 +335,9 @@
                             <p><strong></strong></p>
                             <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQueryEntregado['qr'].'"></p>
                           </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="printButton"><i class="bi bi-printer-fill"></i> Imprimir</button>
+                          <div class="modal-footer">';?>
+                          <a type="button" class="btn btn-primary" href="javascript:imprimirSeleccion('div_print<?php echo $row_sqlQueryEntregado['id']?>')"><i class="bi bi-printer-fill"></i> Imprimir</a>
+                         <?php echo '
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                           </div>
                         </div>
@@ -402,23 +406,26 @@
   </footer>
 </html>
 
-<!-- Inicia impresion de modal -->
-<!-- <script>
-$('#printButton').on('click', function () {
-    if ($('.modal').is(':visible')) {
-        var modalId = $(event.target).closest('.modal').attr('id');
-        $('body').css('visibility', 'hidden');
-        $("#" + modalId).css('visibility', 'visible');
-        $('#' + modalId).removeClass('modal');
-        window.print();
-        $('body').css('visibility', 'visible');
-        $('#' + modalId).addClass('modal');
-    } else {
-        window.print();
-    }
+<!-- Inicia impresion modal -->
+<script>
+$(document).ready(function () {
+    $('#printButton').on('click', function (event) {
+        if ($('.modal').is(':visible')) {
+            console.log('si');
+            var modalId = $(event.target).closest('.modal').attr('id');
+            $('body').css('visibility', 'hidden');
+            $("#" + modalId).css('visibility', 'visible');
+            $('#' + modalId).removeClass('modal');
+            window.print();
+            $('body').css('visibility', 'visible');
+            $('#' + modalId).addClass('modal');
+        } else {
+            window.print();
+        }
+    })
 });
-</script> -->
-<!-- Termina impresion de modal -->
+</script>
+<!-- Termina impresion modal -->
 
 <!-- Modal alta-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
