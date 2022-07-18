@@ -37,7 +37,16 @@ function generarCodigo($longitud) {
     $codeFile = $curp.'_'.$codigo.'.png';
     // QRcode::png($_POST['formData'], $codesDir.$codeFile, 'H', 10); 
     QRcode::png($contatena, $codesDir.$codeFile, 'H', 10); 
-    echo '<img class="img-thumbnail" src="'.$codesDir.$codeFile.'" />';
+    echo '
+    <div id="print_div">
+        <p><strong>MORISMAS DE BRACHO<br>2022</strong></p>
+        <p><strong>Nombre completo:</strong> ' . $_POST['nombre'] . ' ' . $_POST['apellidos'] . '</p>
+        <p><strong>CURP:</strong> ' . $_POST['curp'] . '</p>
+        <p><strong>Pólvora solicitada:</strong> ' . $_POST['cantidad_polvora'] . '</p>
+        <p><strong></strong></p>
+        <p class="text-center"><img class="img-thumbnail" src="'.$codesDir.$codeFile.'" /></p>
+    </div>'
+    ;
 
     $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,cantidad_polvora,entregado,codigo,qr,concatenado) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$cantidad_polvora','$entregado','$codigo','$codeFile','$contatena')";
     $resultado= $conn->query($sqlinsert);
@@ -48,7 +57,7 @@ function generarCodigo($longitud) {
         Swal.fire({
             icon: 'success',
             title: 'Registro correcto',
-            html: '<a href=\"sweetalert2.github.io\">Imprimir Ticket</a>',
+            html: '<a href=\"#\" >Imprimir Ticket</a>',
             footer: 'Morismas de Bracho 2022'
         }).then(function(){window.location='../home_config.php';});</script>";
         }
