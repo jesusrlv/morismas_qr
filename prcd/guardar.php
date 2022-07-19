@@ -1,7 +1,11 @@
 <html>
     <header>
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="QR/ajax_generate_code.js"></script>
+        <script src="print.js" type="text/javascript"></script>
     </header>
 <body>
 
@@ -38,7 +42,7 @@ function generarCodigo($longitud) {
     // QRcode::png($_POST['formData'], $codesDir.$codeFile, 'H', 10); 
     QRcode::png($contatena, $codesDir.$codeFile, 'H', 10); 
     echo '
-    <div id="print_div">
+    <div id="div_print">
         <p><strong>MORISMAS DE BRACHO<br>2022</strong></p>
         <p><strong>Nombre completo:</strong> ' . $_POST['nombre'] . ' ' . $_POST['apellidos'] . '</p>
         <p><strong>CURP:</strong> ' . $_POST['curp'] . '</p>
@@ -53,19 +57,20 @@ function generarCodigo($longitud) {
 
     if($resultado){
         
-        echo "<script type=\"text/javascript\">
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro correcto',
-            html: '<a href=\"#\" >Imprimir Ticket</a>',
-            footer: 'Morismas de Bracho 2022'
-        }).then(function(){window.location='../home_config.php';});</script>";
+        echo 'Actividad Registrada';
         }
         else{
         echo 'No se registró el QR';
         }
 
 ?>
-
+<script>
+        Swal.fire({
+            icon: "success",
+            title: "Registro correcto",
+            html: "<a type=\"button\" class=\"btn btn-outline-success\" href=\"javascript:imprimirSeleccion('div_print')\">Imprimir Ticket</a>",
+            footer: "Morismas de Bracho 2022"
+        }).then(function(){window.location="../home_config.php";});
+        </script>
 </body>
 </html>
