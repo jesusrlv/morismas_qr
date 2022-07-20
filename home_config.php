@@ -480,7 +480,8 @@ $(document).ready(function () {
                   <p><button class="btn btn-primary" type="button" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
                 </div>
                 <div class="col-6 mt-1 text-end">
-                  <p> <button class="btn btn-primary" type="submit"><i class="bi bi-search"> Buscar</i></button></p>
+                  
+                  <!-- <p> <button class="btn btn-primary" type="submit"><i class="bi bi-search"> Buscar</i></button></p> -->
                 </div>
               </div>
             </form><!--form-->
@@ -742,10 +743,12 @@ $(document).ready(function () {
 
   <!-- query -->
   <script>
-    // function consultarQR(){
+     /* function submit(){ */
           $(document).ready(function(){
           var form=$("#form1");
-          $("#form1").submit(function(event){
+          $('#form1 input[name=text]').on('input', function(){
+              $('#form1').submit(function(event){    
+          /* $("#form1").submit(function(){ */
           $.ajax({
                   type:"POST",
                   url:"prcd/query1.php",
@@ -757,11 +760,11 @@ $(document).ready(function () {
                       $("#queryDatos").html(data);                  
                     }               
                   });
-                  
-                  event.preventDefault();
+                  event.preventDefault();}); });
           });
-          });
-      // } 
+          /* }); */
+          
+    //   } 
   </script>
   <script>
     // function consultarQR(){
