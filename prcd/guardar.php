@@ -57,20 +57,19 @@ function generarCodigo($longitud) {
 
     if($resultado){
         
-        echo 'Actividad Registrada';
+        echo '<script>
+        Swal.fire({
+            icon: "success",
+            title: "Registro correcto",
+            footer: "Morismas de Bracho 2022"
+        }).then(function(){window.location="../home_config.php";});
+        </script>';
         }
         else{
         echo 'No se registró el QR';
         }
 
 ?>
-<script>
-        Swal.fire({
-            icon: "success",
-            title: "Registro correcto",
-            html: "<a type=\"button\" class=\"btn btn-outline-success\" href=\"javascript:imprimirSeleccion('div_print')\">Imprimir Ticket</a>",
-            footer: "Morismas de Bracho 2022"
-        }).then(function(){window.location="../home_config.php";});
-        </script>
+    
 </body>
 </html>

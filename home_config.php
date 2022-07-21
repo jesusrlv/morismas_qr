@@ -218,7 +218,7 @@
                           <div class="modal-footer">
                   ';?>
                             <a type="button" class="btn btn-primary" href="javascript:imprimirSeleccion('div_print<?php echo $row_sqlQuery['id']?>')"><i class="bi bi-printer-fill"></i> Imprimir</a>
-                           <?php echo '
+                          <?php echo '
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                           </div>
                         </div>
@@ -340,7 +340,7 @@
                           </div>
                           <div class="modal-footer">';?>
                           <a type="button" class="btn btn-primary" href="javascript:imprimirSeleccion('div_print<?php echo $row_sqlQueryEntregado['id']?>')"><i class="bi bi-printer-fill"></i> Imprimir</a>
-                         <?php echo '
+                          <?php echo '
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                           </div>
                         </div>
@@ -455,7 +455,7 @@ $(document).ready(function () {
                 <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" oninput="ValidaDos();" name="cantidad_polvora" id="cantidad" required>
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <p><div id="result-username"></div></p><!-- valida curp -->
-               <p><div id="result-username2"></div></p><!-- valida usr -->
+              <p><div id="result-username2"></div></p><!-- valida usr -->
         </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
@@ -483,8 +483,7 @@ $(document).ready(function () {
                   <p><button class="btn btn-primary" type="button" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
                 </div>
                 <div class="col-6 mt-1 text-end">
-                  
-                  <!-- <p> <button class="btn btn-primary" type="submit"><i class="bi bi-search"> Buscar</i></button></p> -->
+                  <button class="btn btn-primary" type="submit"><i class="bi bi-search"> Buscar</i></button></p>
                 </div>
               </div>
             </form><!--form-->
@@ -746,9 +745,31 @@ $(document).ready(function () {
   }
   </script>
 
+<script>
+    // function consultarQR(){
+          $(document).ready(function(){
+          var form=$("#form1");
+          $("#form1").submit(function(event){
+          $.ajax({
+                  type:"POST",
+                  url:"prcd/query1.php",
+                  data:form.serialize(),
+                  dataType: "html",
+                  async:false,
+                  cache: false,
+                    success: function(data) {
+                      $("#queryDatos").html(data);                  
+                    }               
+                  });
+                  event.preventDefault();
+          });
+          });
+      // } 
+    </script>
+
   <!-- query -->
-  <script>
-     function changeInput(){
+  <!-- <script>
+    function changeInput(){
           // $(document).ready(function(){
             var form=$("#form1");
             // var valor = $('#form1 input[id=textQRCanje]').val;
@@ -776,7 +797,7 @@ $(document).ready(function () {
           /* }); */
           
       } 
-  </script>
+  </script> -->
   <script>
     // function consultarQR(){
           $(document).ready(function(){
