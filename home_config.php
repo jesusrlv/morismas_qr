@@ -23,7 +23,10 @@
     <script src="instascan.min.js"></script>
     <script src="print.js" type="text/javascript"></script>
     <!-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> -->
-
+    
+    <audio id="myAudio">
+      <source src="beep.mp3" type="audio/mpeg">
+    </audio>
 
     <style>
       .bd-placeholder-img {
@@ -474,7 +477,7 @@ $(document).ready(function () {
       <div class="modal-body">
             <form action="#" id="form1"><!--form-->
               <video id="previewCanje" class="w-100"></video>
-              <p><input type="text" name="text" id="textQRCanje" readonly class="form-control" REQUIRED></p>
+              <p><input type="text" name="text" id="textQRCanje" class="form-control" oninput="changeInput()" READONLY REQUIRED></p>
               <div class="row">
                 <div class="col-6 mt-1">
                   <p><button class="btn btn-primary" type="button" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
@@ -526,6 +529,7 @@ $(document).ready(function () {
 
               scanner.addListener('scan',function(c){
                 document.getElementById('textQRCanje').value=c;
+                document.getElementById("myAudio").play();
                 scanner.stop();
                 });
 
@@ -591,6 +595,7 @@ $(document).ready(function () {
 
               scanner.addListener('scan',function(c){
                 document.getElementById('textQR').value=c;
+                document.getElementById("myAudio").play();
                 scanner.stop();
                 });
 
@@ -743,28 +748,34 @@ $(document).ready(function () {
 
   <!-- query -->
   <script>
-     /* function submit(){ */
-          $(document).ready(function(){
-          var form=$("#form1");
-          $('#form1 input[name=text]').on('input', function(){
-              $('#form1').submit(function(event){    
-          /* $("#form1").submit(function(){ */
-          $.ajax({
-                  type:"POST",
-                  url:"prcd/query1.php",
-                  data:form.serialize(),
-                  dataType: "html",
-                  async:false,
-                  cache: false,
-                    success: function(data) {
-                      $("#queryDatos").html(data);                  
-                    }               
-                  });
-                  event.preventDefault();}); });
-          });
+     function changeInput(){
+          // $(document).ready(function(){
+            var form=$("#form1");
+            // var valor = $('#form1 input[id=textQRCanje]').val;
+            // alert (valor);
+            // $('#textQRCanje').change(function(){
+              alert('si');  
+                $('#form1').submit(function(event){ 
+                  
+                /* $("#form1").submit(function(){ */
+                $.ajax({
+                        type:"POST",
+                        url:"prcd/query1.php",
+                        data:form.serialize(),
+                        dataType: "html",
+                        async:false,
+                        cache: false,
+                          success: function(data) {
+                            $("#queryDatos").html(data);                  
+                          }               
+                        });
+                        event.preventDefault();
+                }); 
+            // });
+          // });
           /* }); */
           
-    //   } 
+      } 
   </script>
   <script>
     // function consultarQR(){
@@ -782,7 +793,7 @@ $(document).ready(function () {
                       $("#queryDatos2").html(data);                  
                     }               
                   });
-                  
+                 
                   event.preventDefault();
           });
           });
