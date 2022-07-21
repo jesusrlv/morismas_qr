@@ -169,7 +169,6 @@
               <thead style="background-color:#7B8DAB;" class="text-light align-middle">
                 <tr class="text-center">
                     <th scope="col">#</th>
-                    <th scope="col">Sel. <br><input class="form-check-input" type="checkbox" value=""></th>
                     <th scope="col">Nombre(s)</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Fecha de Registro</th>
@@ -189,7 +188,6 @@
                     echo '
                     <tr class="text-center bg-white">
                       <td>' . $x . '</td>
-                      <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQuery['id'].'"></td>
                       <td>' . $row_sqlQuery['nombre'] . '</td>
                       <td>' . $row_sqlQuery['apellidos'] . '</td>
                       <td>' . $row_sqlQuery['fecha_entrega'] . '</td>
@@ -218,7 +216,7 @@
                           <div class="modal-footer">
                   ';?>
                             <a type="button" class="btn btn-primary" href="javascript:imprimirSeleccion('div_print<?php echo $row_sqlQuery['id']?>')"><i class="bi bi-printer-fill"></i> Imprimir</a>
-                          <?php echo '
+                            <?php echo '
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                           </div>
                         </div>
@@ -291,7 +289,6 @@
               <thead style="background-color:#7B8DAB;" class="text-light align-middle">
                 <tr class="text-center">
                     <th scope="col">#</th>
-                    <th scope="col">Sel. <br><input class="form-check-input" type="checkbox" value=""></th>
                     <th scope="col">Nombre(s)</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Fecha de Registro</th>
@@ -312,7 +309,6 @@
                     <input id="imprime2" value="'.$row_sqlQueryEntregado['id'].'" hidden>
                     <tr class="text-center bg-white">
                       <td>' . $x . '</td>
-                      <td><input class="form-check-input" type="checkbox" value="'.$row_sqlQueryEntregado['id'].'"></td>
                       <td>' . $row_sqlQueryEntregado['nombre'] . '</td>
                       <td>' . $row_sqlQueryEntregado['apellidos'] . '</td>
                       <td>' . $row_sqlQueryEntregado['fecha_entrega'] . '</td>
@@ -456,7 +452,11 @@ $(document).ready(function () {
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <p><div id="result-username"></div></p><!-- valida curp -->
               <p><div id="result-username2"></div></p><!-- valida usr -->
-        </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
+                <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" value="' . $row_sqlQuery['detalles'] . '" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
+              </div>
+            </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
             <button type="submit" class="btn btn-primary" id="boton_submit"><i class="bi bi-person-plus"></i> Guardar</button>

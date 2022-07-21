@@ -23,8 +23,8 @@ $detalles = $_POST['detalles'];
         Swal.fire({
             icon: 'success',
             title: 'Registro correcto',
-            text: 'Catálogo actualizado',
-            footer: 'Ventas en línea</a>'
+            text: 'Actualizado',
+            footer: 'Morismas de Bracho</a>'
         }).then(function(){window.location='../home_config.php';});</script>";
         }
         else{

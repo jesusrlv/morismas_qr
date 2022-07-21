@@ -22,6 +22,7 @@ $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
 $cantidad_polvora = $_POST['cantidad_polvora'];
 $curp = $_POST['curp'];
+$detalles = $_POST['detalles'];
 $entregado = 0; 
 
 function generarCodigo($longitud) {
@@ -52,7 +53,7 @@ function generarCodigo($longitud) {
     </div>'
     ;
 
-    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,cantidad_polvora,entregado,codigo,qr,concatenado) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$cantidad_polvora','$entregado','$codigo','$codeFile','$contatena')";
+    $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,fecha_entrega,curp,cantidad_polvora,entregado,codigo,qr,concatenado,detalles) VALUES('$nombre','$apellidos','$fecha_entrega','$curp','$cantidad_polvora','$entregado','$codigo','$codeFile','$contatena','$detalles')";
     $resultado= $conn->query($sqlinsert);
 
     if($resultado){
