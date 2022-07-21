@@ -1,7 +1,7 @@
 <?php
 
     $servername="localhost";
-    $database="morismas"; //solo se quitó para conexión remota
+    $database="c2morismas"; //solo se quitó para conexión remota
     $username="c2cOnf_psic_0307";
     $password="ThmfMTk_G6";
 
