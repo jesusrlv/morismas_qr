@@ -517,7 +517,7 @@ $(document).ready(function () {
               });
               Instascan.Camera.getCameras().then(function(cameras) {
                 if (cameras.length > 0) {
-                  scanner.start(cameras[2]);
+                  scanner.start(cameras[0]);
                 } else {
                   // console.error('No cameras found.');
                   alert("No se encontró cámara");
@@ -583,7 +583,7 @@ $(document).ready(function () {
               });
               Instascan.Camera.getCameras().then(function(cameras) {
                 if (cameras.length > 0) {
-                  scanner.start(cameras[2]);
+                  scanner.start(cameras[0]);
                 } else {
                   // console.error('No cameras found.');
                   alert("No se encontró cámara");
