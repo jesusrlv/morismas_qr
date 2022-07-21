@@ -251,7 +251,7 @@
                                   
                                   <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                                    <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" value="' . $row_sqlQuery['detalles'] . '" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
+                                    <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">' . $row_sqlQuery['detalles'] . '</textarea>
                                   </div>
                             </div>
                               <div class="modal-footer">
@@ -371,7 +371,7 @@
                                   
                                   <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-card-text"></i></span>
-                                    <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" value="' . $row_sqlQueryEntregado['detalles'] . '" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles"></textarea>
+                                    <textarea style="resize: none;" rows="4" type="text" class="form-control" placeholder="Detalles (opcional)" aria-label="Detalles" aria-describedby="basic-addon1" name="detalles">' . $row_sqlQueryEntregado['detalles'] . '</textarea>
                                   </div>
                             </div>
                               <div class="modal-footer">
