@@ -17,7 +17,7 @@ $detalles = $_POST['detalles']; */
     $resultado= $conn->query($sqlUpdate);
 
 
-     if($resultado){
+    if($resultado){
         
         echo "<script type=\"text/javascript\">
         Swal.fire({
