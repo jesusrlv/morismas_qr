@@ -162,7 +162,10 @@
               </div>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir lista</button>
+              <div class="btn-group" role="group" aria-label="">
+                <button type="button" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-spreadsheet"></i> Exportar a Excel</button>
+                <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir</button>
+              </div>
               <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
             </div>
           </div>
@@ -282,7 +285,10 @@
               </div>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir lista</button>
+              <div class="btn-group" role="group" aria-label="">
+                <button type="button" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-spreadsheet"></i> Exportar a Excel</button>
+                <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir</button>
+              </div>
               <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
             </div>
           </div>
