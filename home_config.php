@@ -19,7 +19,9 @@
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
     <script src="instascan.min.js"></script>
     <script src="print.js" type="text/javascript"></script>
     <!-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> -->
@@ -481,6 +483,10 @@ $(document).ready(function () {
               <div class="row">
                 <div class="col-6 mt-1">
                   <p><button class="btn btn-primary" type="button" onclick="abrirCamaraCanje()"><i class="bi bi-qr-code-scan"></i> Escanear</button></p>
+                  <select name="cameraCanje" class="form-select">
+                    <option value="1"><i class="bi bi-camera-video-fill"></i> Frontal Cam</option>
+                    <option value="2"><i class="bi bi-camera-video"></i> Back Cam</option>
+                  </select>
                 </div>
                 <div class="col-6 mt-1 text-end">
                   <button class="btn btn-primary" type="submit"><i class="bi bi-search"> Buscar</i></button></p>
@@ -518,6 +524,30 @@ $(document).ready(function () {
               Instascan.Camera.getCameras().then(function(cameras) {
                 if (cameras.length > 0) {
                   scanner.start(cameras[0]);
+// code front-back camera https://www.youtube.com/watch?v=7gyDSun7pCw&ab_channel=LearnCodeWeb
+                  $('[name="cameraCanje"]').on('change',function(){
+                    if($(this).val()==1){
+                      if(cameras[0]!=""){
+                        scanner.start(cameras[0]);
+                      }
+                      else{
+                        alert('No hay camaras');
+                      }
+                      }
+                      else if($(this).val()==2){
+                      if(cameras[1]!=""){
+                        scanner.start(cameras[1]);
+                      }
+                      else{
+                        alert('No hay camaras');
+                      }
+                    }
+                    
+
+                  });
+                  
+// code front-back camera
+
                 } else {
                   // console.error('No cameras found.');
                   alert("No se encontró cámara");
