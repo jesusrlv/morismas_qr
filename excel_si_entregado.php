@@ -163,7 +163,7 @@
             </div>
             <div class="col">
               <div class="btn-group" role="group" aria-label="">
-                <a type="button" href="excel_no_entregado.php" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-spreadsheet"></i> Exportar a Excel</a>
+                <button type="button" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-spreadsheet"></i> Exportar a Excel</button>
                 <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir</button>
               </div>
               <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
