@@ -18,6 +18,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet"> 
 
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -334,12 +337,14 @@
                             <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-qr-code"></i> Información QR</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body" id="div_print'.$row_sqlQueryEntregado['id'].'">
-                            <p><strong>Nombre completo:</strong> ' . $row_sqlQueryEntregado['nombre'] . ' ' . $row_sqlQueryEntregado['apellidos'] . '</p>
-                            <p><strong>CURP:</strong> ' . $row_sqlQueryEntregado['curp'] . '</p>
-                            <p><strong>Pólvora solicitada:</strong> ' . $row_sqlQueryEntregado['cantidad_polvora'] . '</p>
-                            <p><strong>Detalles:</strong> ' . $row_sqlQueryEntregado['detalles'] . '</p>
-                            <p><strong></strong></p>
+                          <div class="modal-body" style="text-align: center;" id="div_print'.$row_sqlQueryEntregado['id'].'">
+                            <center><img src="img/logomorismas.png" height="150"></center>
+                            <br>
+                            <center><h5 style="font-size: 1.5rem"><strong>Nombre completo:</strong> ' . $row_sqlQueryEntregado['nombre'] . ' ' . $row_sqlQueryEntregado['apellidos'] . '</h5>
+                            <h5 style="font-size: 1.5rem"><strong>CURP:</strong> ' . $row_sqlQueryEntregado['curp'] . '</h5>
+                            <h5 style="font-size: 1.5rem"><strong>Pólvora solicitada:</strong> ' . $row_sqlQueryEntregado['cantidad_polvora'] . '</h5>
+                            <h5 style="font-size: 1.5rem"><strong>Detalles:</strong> ' . $row_sqlQueryEntregado['detalles'] . '</h5>
+                            <h5 style="font-size: 1.5rem"><strong></strong></h5></center>
                             <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQueryEntregado['qr'].'"></p>
                           </div>
                           <div class="modal-footer">';?>
