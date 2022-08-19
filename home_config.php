@@ -342,7 +342,7 @@
                             <br>
                             <center><h5 style="font-size: 1.5rem"><strong>Nombre completo:</strong> ' . $row_sqlQueryEntregado['nombre'] . ' ' . $row_sqlQueryEntregado['apellidos'] . '</h5>
                             <h5 style="font-size: 1.5rem"><strong>CURP:</strong> ' . $row_sqlQueryEntregado['curp'] . '</h5>
-                            <h5 style="font-size: 1.5rem"><strong>Pólvora solicitada:</strong> ' . $row_sqlQueryEntregado['cantidad_polvora'] . '</h5>
+                            <h5 style="font-size: 1.5rem"><strong>Pólvora solicitada:</strong> ' . $row_sqlQueryEntregado['cantidad_polvora'] . ' kg</h5>
                             <h5 style="font-size: 1.5rem"><strong>Detalles:</strong> ' . $row_sqlQueryEntregado['detalles'] . '</h5>
                             <h5 style="font-size: 1.5rem"><strong></strong></h5></center>
                             <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQueryEntregado['qr'].'"></p>
