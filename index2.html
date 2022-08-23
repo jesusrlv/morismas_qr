@@ -35,7 +35,6 @@
     <!-- Custom styles for this template -->
     <link href="signin2.css" rel="stylesheet">
   </head>
-  <!-- <body class="text-center" style="background-image: url('/asset/brand/img/portada1.jpg');"> -->
   <body class="text-center">
     <div class="hero-image">
         <div class="hero-text">
@@ -76,7 +75,6 @@ $(document).ready(function() {
             success: function(response)
             {
                 var jsonData = JSON.parse(response);
- 
                 // user is logged in successfully in the back-end
                 // let's redirect
                 if (jsonData.success == "1")
@@ -100,9 +98,9 @@ $(document).ready(function() {
                     // }).then(function(){window.location='index.php';});
                     });
                 }
-           }
-       });
-     });
+          }
+      });
+    });
 });
 </script>
   <!-- script validate -->

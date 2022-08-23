@@ -112,6 +112,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#validate"><i class="bi bi-qr-code"></i> Verificar Ticket</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#validate"><i class="bi bi-x-circle"></i> Salir</a>
+              </li>
             </ul>
           </div>
         </div>
