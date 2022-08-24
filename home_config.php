@@ -217,20 +217,19 @@
                             <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-qr-code"></i> Información QR</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body" style="text-align: center; id="div_print'.$row_sqlQuery['id'].'">
+                          <div class="modal-body" style="text-align: center;" id="div_print'.$row_sqlQuery['id'].'">
                             <center><img src="img/logomorismas.png" height="150"></center>
                             <br>
-                            <center><h5 style="font-size: 1.5rem"><strong>Nombre completo:</strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . '</p>
-                            <p><strong>CURP:</strong> ' . $row_sqlQuery['curp'] . '</p>
-                            <p><strong>Pólvora solicitada:</strong> ' . $row_sqlQuery['cantidad_polvora'] . ' kg</p>
-                            <p><strong>Detalles:</strong> ' . $row_sqlQuery['detalles'] . '</p>
-                            <p><strong></strong></p>
-                            <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p><centrer/>
+                            <center><h5 style="font-size: 1.5rem"><strong>Nombre completo:</strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . '</h5>
+                            <h5 style="font-size: 1.5rem"><strong>CURP:</strong> ' . $row_sqlQuery['curp'] . '</h5>
+                            <h5 style="font-size: 1.5rem"><strong>Pólvora solicitada:</strong> ' . $row_sql['cantidad_polvora'] . ' kg</h5>
+                            <h5 style="font-size: 1.5rem"><strong>Detalles:</strong> ' . $row_sqlQuery['detalles'] . '</h5>
+                            <h5 style="font-size: 1.5rem"><strong></strong></h5></center>
+                            <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p>
                           </div>
-                          <div class="modal-footer">
-                  ';?>
-                            <a type="button" class="btn btn-primary" href="javascript:imprimirSeleccion('div_print<?php echo $row_sqlQuery['id']?>')"><i class="bi bi-printer-fill"></i> Imprimir</a>
-                            <?php echo '
+                          <div class="modal-footer">';?>
+                          <a type="button" class="btn btn-primary" href="javascript:imprimirSeleccion('div_print<?php echo $row_sqlQuery['id']?>')"><i class="bi bi-printer-fill"></i> Imprimir</a>
+                          <?php echo '
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                           </div>
                         </div>
