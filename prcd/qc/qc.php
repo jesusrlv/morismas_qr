@@ -1,9 +1,9 @@
 <?php
 
-    // $servername="localhost";
-    // $database="morismas"; //solo se quitó para conexión remota
-    // $username="root";
-    // $password="";
+    $servername="localhost";
+    $database="morismas"; //solo se quitó para conexión remota
+    $username="root";
+    $password="";
 
     // $servername="localhost";
     // $database="morismas"; //solo se quitó para conexión remota
@@ -21,10 +21,10 @@
     $username="c2cOnf_psic_0307";
     $password="ThmfMTk_G6"; */
 
-    $servername="localhost";
+/*     $servername="localhost";
     $database="morismas_qr"; //solo se quitó para conexión remota
     $username="morismas_usr";
-    $password="dIgMg8&wMrbd";
+    $password="dIgMg8&wMrbd"; */
 
     $conn= new mysqli ($servername,$username,$password,$database); //solo se quitó para conexión remota
 
