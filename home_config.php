@@ -197,6 +197,7 @@
                   while ($row_sqlQuery = $resultadoQuery->fetch_assoc()) {
                     $x++;
                     echo '
+                    <input id="imprime2" value="'.$row_sqlQuery['id'].'" hidden>
                     <tr class="text-center bg-white">
                       <td>' . $x . '</td>
                       <td>' . $row_sqlQuery['nombre'] . '</td>
