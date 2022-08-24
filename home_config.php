@@ -170,7 +170,7 @@
             <div class="col">
               <div class="btn-group" role="group" aria-label="">
                 <a type="button" href="excel_no_entregado.php" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-spreadsheet"></i> Exportar a Excel</a>
-                <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir</button>
+                <!-- <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir</button> -->
               </div>
               <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
             </div>
@@ -216,13 +216,15 @@
                             <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-qr-code"></i> Información QR</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body" id="div_print'.$row_sqlQuery['id'].'">
-                            <p><strong>Nombre completo:</strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . '</p>
+                          <div class="modal-body" style="text-align: center; id="div_print'.$row_sqlQuery['id'].'">
+                            <center><img src="img/logomorismas.png" height="150"></center>
+                            <br>
+                            <center><h5 style="font-size: 1.5rem"><strong>Nombre completo:</strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . '</p>
                             <p><strong>CURP:</strong> ' . $row_sqlQuery['curp'] . '</p>
-                            <p><strong>Pólvora solicitada:</strong> ' . $row_sqlQuery['cantidad_polvora'] . '</p>
+                            <p><strong>Pólvora solicitada:</strong> ' . $row_sqlQuery['cantidad_polvora'] . ' kg</p>
                             <p><strong>Detalles:</strong> ' . $row_sqlQuery['detalles'] . '</p>
                             <p><strong></strong></p>
-                            <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p>
+                            <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p><centrer/>
                           </div>
                           <div class="modal-footer">
                   ';?>
@@ -292,8 +294,8 @@
             </div>
             <div class="col">
               <div class="btn-group" role="group" aria-label="">
-                <button type="button" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-spreadsheet"></i> Exportar a Excel</button>
-                <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir</button>
+              <a type="button" href="excel_si_entregado.php" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-spreadsheet"></i> Exportar a Excel</a>
+                <!-- <button type="button" class="btn btn-outline-secondary"><i class="bi bi-printer"></i> Imprimir</button> -->
               </div>
               <p class="float-end"><a href="#" style="text-decoration:none"><i class="bi bi-caret-up-square-fill"></i> Arriba</a></p>
             </div>
@@ -464,7 +466,7 @@ $(document).ready(function () {
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-badge"></i></span>
                 <input type="text" class="form-control" placeholder="CURP" aria-label="CURP" aria-describedby="basic-addon1" name="curp" id="username" onkeyup="javascript:this.value=this.value.toUpperCase();" onblur="validarInput(this);" required>
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" oninput="ValidaDos();" name="cantidad_polvora" id="cantidad" required>
+                <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1" maxlength="1" onkeypress="ValidaSoloNumeros()" oninput="ValidaDos();" name="cantidad_polvora" id="cantidad" value="1" readonly>
               </div><!-- Si, y solo si se asignan 2kg de polvora, se habilita el campo de detalles y se convierte en obligatorio -->
               <p><div id="result-username"></div></p><!-- valida curp -->
               <p><div id="result-username2"></div></p><!-- valida usr -->

@@ -1,7 +1,7 @@
 <?php
 header("Pragma: public");
 header("Expires: 0");
-$filename = "reporte_ganadores_PEJ21.xls";
+$filename = "reporte_polvora_noentregada.xls";
 header("Content-type: application/x-msdownload");
 header("Content-Disposition: attachment; filename=$filename");
 header("Pragma: no-cache");
