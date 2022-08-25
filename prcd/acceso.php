@@ -18,18 +18,18 @@ if (isset($_POST['usr']) && isset($_POST['pwd'])) {
 
 if($row_sql['perfil']==1){ //admin 1
     
-    echo "<script type=\"text/javascript\">location.href='home_config.php';</script>";
+    echo "<script type=\"text/javascript\">location.href='../home_config.php';</script>";
     }
 
 elseif($row_sql['perfil']==2){ //admin 2
 
-    echo "<script type=\"text/javascript\">location.href='home_config.php';</script>";
+    echo "<script type=\"text/javascript\">location.href='../home_config.php';</script>";
     
 }
 
 elseif($row_sql['perfil']==3){ //admin 3
 
-    echo "<script type=\"text/javascript\">location.href='home_config.php';</script>";
+    echo "<script type=\"text/javascript\">location.href='../home_config.php';</script>";
     
 }
 
