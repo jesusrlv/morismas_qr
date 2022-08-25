@@ -1,3 +1,35 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
+  if($_SESSION['perfil']==1){
+
+  }
+  elseif ($_SESSION['perfil']==2){
+
+  }
+  elseif ($_SESSION['perfil']==3){
+
+  }
+  else{
+    header('Location: sort.php');
+    die();
+  }
+  
+} else {
+  // En caso contrario redirigimos el visitante a otra página
+
+  header('Location: sort.php');
+  die();
+}
+
+// variables de sesión
+    $id_sess = $_SESSION['id'];
+    $nombre_sess = $_SESSION['usr'];
+    $perfil_sess = $_SESSION['perfil'];
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -222,7 +254,7 @@
                             <br>
                             <center><h5 style="font-size: 1.5rem"><strong>Nombre completo:</strong> ' . $row_sqlQuery['nombre'] . ' ' . $row_sqlQuery['apellidos'] . '</h5>
                             <h5 style="font-size: 1.5rem"><strong>CURP:</strong> ' . $row_sqlQuery['curp'] . '</h5>
-                            <h5 style="font-size: 1.5rem"><strong>Pólvora solicitada:</strong> ' . $row_sql['cantidad_polvora'] . ' kg</h5>
+                            <h5 style="font-size: 1.5rem"><strong>Pólvora solicitada:</strong> ' . $row_sqlQuery['cantidad_polvora'] . ' kg</h5>
                             <h5 style="font-size: 1.5rem"><strong>Detalles:</strong> ' . $row_sqlQuery['detalles'] . '</h5>
                             <h5 style="font-size: 1.5rem"><strong></strong></h5></center>
                             <p class="text-center"><img src="prcd/QR/codes/'. $row_sqlQuery['qr'].'"></p>
