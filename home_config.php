@@ -40,6 +40,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <meta name="generator" content="Hugo 0.98.0">
     <title>Generador de tickets | Morismas de Bracho</title>
 
+    <link rel="icon" type="image/png" href="img/logomorismas.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -137,7 +138,23 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                 <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill"></i> Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-check-circle-fill"></i> Registrar</a>
+                <?php
+                  if($perfil_sess == 1){
+                    echo '
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-check-circle-fill"></i> Registrar</a>
+                    ';
+                  }
+                  elseif($perfil_sess == 2){
+                    echo '
+                    <a class="nav-link disabled" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled><i class="bi bi-check-circle-fill"></i> Registrar</a>
+                    ';
+                  }
+                  elseif($perfil_sess == 3){
+                    echo '
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled><i class="bi bi-check-circle-fill"></i> Registrar</a>
+                    ';
+                  }
+                ?>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#canjear"><i class="bi bi-ticket-perforated-fill"></i> Canjear Ticket</a>
@@ -170,7 +187,23 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
               <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/bracho.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
               <h2 class="fw-normal">Registrar</h2>
               <p>Generador de ticket para pólvora.</p>
-              <p><a class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar &raquo;</a></p>
+              <?php
+                  if($perfil_sess == 1){
+                    echo '
+                    <p><a class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar &raquo;</a></p>
+                    ';
+                  }
+                  elseif($perfil_sess == 2){
+                    echo '
+                    <p><a class="btn btn-outline-secondary disabled" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled>Ingresar &raquo;</a></p>
+                    ';
+                  }
+                  elseif($perfil_sess == 3){
+                    echo '
+                    <p><a class="btn btn-outline-secondary disabled" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar &raquo;</a></p>
+                    ';
+                  }
+                ?>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
               <img class="bd-placeholder-img rounded-circle" width="180" height="140" src="img/polvora.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
