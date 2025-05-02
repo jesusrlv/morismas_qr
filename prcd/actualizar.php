@@ -5,17 +5,15 @@
 <body>
 
 <?php
-include('qc/qc.php');
+    include('qc/qc.php');
 
-$id = $_POST['id'];
-$nombre = $_POST['nombre'];
-$apellidos = $_POST['apellidos'];
-$detalles = $_POST['detalles'];
-
+    $id = $_POST['id'];
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $detalles = $_POST['detalles'];
     /* $sqlinsert= "INSERT INTO asistentes(nombre,apellidos,curp,detalles,cantidad_polvora,entregado) VALUES('$nombre','$apellidos','$curp','$detalles','$cantidad_polvora','$entregado')"; */
     $sqlUpdate ="UPDATE asistentes SET nombre='$nombre',apellidos='$apellidos',detalles='$detalles' WHERE id='$id'";
     $resultado= $conn->query($sqlUpdate);
-
 
     if($resultado){
         
@@ -26,12 +24,10 @@ $detalles = $_POST['detalles'];
             text: 'Actualizado',
             footer: 'Morismas de Bracho</a>'
         }).then(function(){window.location='../home_config.php';});</script>";
-        }
-        else{
+    }
+    else{
         echo 'No se registró producto';
-        }
-
-
+    }
 ?>
 
 </body>
